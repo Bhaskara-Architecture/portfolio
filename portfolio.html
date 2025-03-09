@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Lato', sans-serif; 
+            text-align: left; 
+            padding: 20px; 
+            background-color: #002fa7; /* Bleu Klein */
+            color: white;
+        }
+        h1 { text-transform: uppercase; text-align: center; font-size: 24px; }
+        .container { display: flex; flex-direction: column; align-items: flex-start; }
+        .titles { list-style: none; padding: 0; }
+        .titles li { cursor: pointer; margin: 10px 0; font-weight: bold; position: relative; }
+        .photos { display: none; margin-top: 10px; }
+        .photos img { width: 300px; margin: 5px; cursor: pointer; display: block; }
+        .transparent-image {
+            display: block;
+            margin: 50px auto 0 auto;
+            width: 100%;
+            max-width: 600px;
+            opacity: 0.9; /* Ajuste la transparence */
+        }
+    </style>
+</head>
+<body>
+    <h1>Bhaskara Architecture</h1>
+    <div class="container">
+        <ul class="titles">
+            <li onclick="showPhotos(13, this)">P13<div id="photos-13" class="photos"></div></li>
+            <li onclick="showPhotos(12, this)">P12<div id="photos-12" class="photos"></div></li>
+            <li onclick="showPhotos(11, this)">P11<div id="photos-11" class="photos"></div></li>
+            <li onclick="showPhotos(10, this)">P10<div id="photos-10" class="photos"></div></li>
+            <li onclick="showPhotos(9, this)">P09<div id="photos-9" class="photos"></div></li>
+            <li onclick="showPhotos(8, this)">P08<div id="photos-8" class="photos"></div></li>
+            <li onclick="showPhotos(7, this)">P07<div id="photos-7" class="photos"></div></li>
+            <li onclick="showPhotos(6, this)">P06<div id="photos-6" class="photos"></div></li>
+            <li onclick="showPhotos(5, this)">P05<div id="photos-5" class="photos"></div></li>
+            <li onclick="showPhotos(4, this)">P04<div id="photos-4" class="photos"></div></li>
+            <li onclick="showPhotos(3, this)">P03<div id="photos-3" class="photos"></div></li>
+            <li onclick="showPhotos(2, this)">P02<div id="photos-2" class="photos"></div></li>
+            <li onclick="showPhotos(1, this)">P01<div id="photos-1" class="photos"></div></li>
+        </ul>
+    </div>
+
+    <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
+
+    <script>
+        let images = {};
+        let suffixes = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']; // 10 images par projet
+        
+        for (let i = 1; i <= 13; i++) {
+            images[i] = [];
+            for (let j = 0; j < 10; j++) {
+                images[i].push(`images/photo${i}_${j}.jpg`);
+            }
+        }
+
+        function showPhotos(num, element) {
+            let container = document.getElementById(`photos-${num}`);
+            container.innerHTML = '';
+            container.style.display = 'block';
+            
+            let imgElement = document.createElement("img");
+            imgElement.src = images[num][0];
+            imgElement.setAttribute("data-index", 0);
+            imgElement.onclick = function() { nextPhoto(num, imgElement); };
+            container.appendChild(imgElement);
+        }
+
+        function nextPhoto(num, imgElement) {
+            let index = parseInt(imgElement.getAttribute("data-index"), 10);
+            index = (index + 1) % images[num].length;
+            imgElement.src = images[num][index];
+            imgElement.setAttribute("data-index", index);
+        }
+    </script>
+</body>
+</html>
