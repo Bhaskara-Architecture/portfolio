@@ -112,7 +112,7 @@
                     // Ajoute l'événement pour charger l'image suivante
                     imgElement.addEventListener("click", function(event) { 
                         event.stopPropagation(); 
-                        openImageInNewTab(this.src);
+                        addNextPhoto(num, container);
                     });
 
                     container.appendChild(imgElement);
@@ -121,11 +121,6 @@
                 console.log(`Masquage des images du projet P${num}`);
                 container.style.display = "none"; 
             }
-        }
-
-        // Fonction pour ouvrir une image dans un nouvel onglet
-        function openImageInNewTab(src) {
-            window.open(src, '_blank');
         }
 
         // Fonction pour ajouter une nouvelle image à côté sans supprimer l'ancienne
@@ -137,16 +132,25 @@
                 let newImg = document.createElement("img");
                 newImg.src = images[num][currentIndex];
 
-                // Ajoute l'événement pour ouvrir l'image en grand dans un nouvel onglet
+                // Ajoute l'événement pour charger la suivante ou ouvrir en grand si c'est la dernière
                 newImg.addEventListener("click", function(event) { 
-                    event.stopPropagation(); 
-                    openImageInNewTab(this.src);
+                    event.stopPropagation();
+                    if (container.children.length === images[num].length) {
+                        openImageInNewTab(this.src);
+                    } else {
+                        addNextPhoto(num, container);
+                    }
                 });
 
                 container.appendChild(newImg);
             } else {
                 console.log(`Toutes les images du projet P${num} sont affichées.`);
             }
+        }
+
+        // Fonction pour ouvrir une image dans un nouvel onglet (seulement après affichage complet)
+        function openImageInNewTab(src) {
+            window.open(src, '_blank');
         }
     </script>
 </body>
