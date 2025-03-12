@@ -40,6 +40,7 @@
             display: none; 
             margin-top: 10px;
             flex-wrap: wrap;
+            display: flex;
         }
         .photos img { 
             width: 300px; /* Taille standard */
@@ -94,11 +95,11 @@
         // Fonction pour afficher / masquer les photos sous le projet cliqué
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
-            if (container.style.display === "flex") {
-                container.style.display = "none"; // Cache les images si elles sont visibles
-                container.innerHTML = ''; // Efface les images
-            } else {
+
+            if (container.style.display === "none" || container.innerHTML === "") {
+                console.log(`Affichage des images du projet P${num}`);
                 container.style.display = "flex"; // Afficher les images
+                
                 if (container.children.length === 0) {
                     // Ajouter la première image uniquement si aucune image n'est encore affichée
                     let imgElement = document.createElement("img");
@@ -110,13 +111,18 @@
 
                     container.appendChild(imgElement);
                 }
+            } else {
+                console.log(`Masquage des images du projet P${num}`);
+                container.style.display = "none"; // Cache les images
             }
         }
 
         // Fonction pour ajouter une nouvelle image à côté sans supprimer l'ancienne
         function addNextPhoto(num, container) {
             let currentIndex = container.children.length; // Nombre d'images déjà affichées
+            
             if (currentIndex < images[num].length) {
+                console.log(`Ajout de l'image: ${images[num][currentIndex]}`);
                 let newImg = document.createElement("img");
                 newImg.src = images[num][currentIndex];
 
@@ -124,6 +130,8 @@
                 newImg.addEventListener("click", function() { addNextPhoto(num, container); });
 
                 container.appendChild(newImg);
+            } else {
+                console.log(`Toutes les images du projet P${num} sont affichées.`);
             }
         }
     </script>
