@@ -82,19 +82,9 @@
     <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
 
     <script>
-        let images = {};
-        let suffixes = [];
-        for (let j = 0; j < 20; j++) {
-            suffixes.push(j.toString());
-        }
-
-        // Initialisation du tableau des images
-        for (let i = 1; i <= 13; i++) {
-            images[i] = [];
-            for (let j = 0; j < 20; j++) {
-                images[i].push(`images/photo${i}_${suffixes[j]}.jpg`);
-            }
-        }
+        let images = {
+            1: 5, 2: 10, 3: 8, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 9, 12: 14, 13: 18
+        }; // Nombre d'images réel par projet
 
         // Fonction pour afficher / masquer les photos sous le projet cliqué
         function togglePhotos(num) {
@@ -106,7 +96,7 @@
 
                 if (container.children.length === 0) {
                     let imgElement = document.createElement("img");
-                    imgElement.src = images[num][0];
+                    imgElement.src = `images/photo${num}_0.jpg`;
                     imgElement.setAttribute("data-index", 0);
                     
                     // Ajoute l'événement pour charger l'image suivante
@@ -127,15 +117,15 @@
         function addNextPhoto(num, container) {
             let currentIndex = container.children.length;
 
-            if (currentIndex < images[num].length) {
-                console.log(`Ajout de l'image: ${images[num][currentIndex]}`);
+            if (currentIndex < images[num]) {
+                console.log(`Ajout de l'image: images/photo${num}_${currentIndex}.jpg`);
                 let newImg = document.createElement("img");
-                newImg.src = images[num][currentIndex];
+                newImg.src = `images/photo${num}_${currentIndex}.jpg`;
 
                 // Ajoute l'événement pour charger la suivante ou ouvrir en grand si c'est la dernière
                 newImg.addEventListener("click", function(event) { 
                     event.stopPropagation();
-                    if (container.children.length === images[num].length) {
+                    if (container.children.length === images[num]) {
                         openImageInNewTab(this.src);
                     } else {
                         addNextPhoto(num, container);
