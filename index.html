@@ -44,7 +44,7 @@
             display: flex;
         }
         .photos img { 
-            width: 500px; /* Augmentation de la taille des images */
+            width: 500px; /* Taille des images */
             margin: 5px; 
             cursor: pointer; 
             display: block; 
@@ -52,8 +52,8 @@
         .transparent-image {
             display: block;
             margin: 50px auto 0 auto;
-            width: 50%; /* Réduction de la taille de l'image PNG par 2 */
-            max-width: 300px; /* Ajustement pour éviter une taille trop grande sur les écrans larges */
+            width: 50%; /* Taille réduite de l'image PNG */
+            max-width: 300px;
             opacity: 0.9; /* Ajuste la transparence */
         }
     </style>
@@ -83,8 +83,8 @@
 
     <script>
         let images = {
-            1: 5, 2: 10, 3: 13, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 9, 12: 14, 13: 18
-        }; // Nombre d'images réel par projet, avec P03 à 13 images
+            1: 5, 2: 10, 3: 13, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 20, 12: 14, 13: 18
+        }; // Assure que P11 contient bien 20 images
 
         // Fonction pour afficher / masquer les photos sous le projet cliqué
         function togglePhotos(num) {
