@@ -44,7 +44,7 @@
             display: flex;
         }
         .photos img { 
-            width: 300px; /* Taille standard */
+            width: 360px; /* Augmentation de 20% par rapport à 300px */
             margin: 5px; 
             cursor: pointer; 
             display: block; 
@@ -83,12 +83,15 @@
 
     <script>
         let images = {};
-        let suffixes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']; // 10 images par projet
+        let suffixes = [];
+        for (let j = 0; j < 20; j++) {
+            suffixes.push(j.toString());
+        }
 
         // Initialisation du tableau des images
         for (let i = 1; i <= 13; i++) {
             images[i] = [];
-            for (let j = 0; j < 10; j++) {
+            for (let j = 0; j < 20; j++) {
                 images[i].push(`images/photo${i}_${suffixes[j]}.jpg`);
             }
         }
@@ -97,44 +100,47 @@
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
 
-            // Si le conteneur est masqué, l'afficher
             if (container.style.display === "none" || container.innerHTML === "") {
                 console.log(`Affichage des images du projet P${num}`);
-                container.style.display = "flex"; // Afficher les images
+                container.style.display = "flex";
 
-                // Ajouter la première image uniquement si aucune image n'est encore affichée
                 if (container.children.length === 0) {
                     let imgElement = document.createElement("img");
                     imgElement.src = images[num][0];
                     imgElement.setAttribute("data-index", 0);
                     
-                    // Ajouter l'événement de clic pour charger l'image suivante
+                    // Ajoute l'événement pour charger l'image suivante
                     imgElement.addEventListener("click", function(event) { 
-                        event.stopPropagation(); // Empêche de refermer le titre
-                        addNextPhoto(num, container);
+                        event.stopPropagation(); 
+                        openImageInNewTab(this.src);
                     });
 
                     container.appendChild(imgElement);
                 }
             } else {
                 console.log(`Masquage des images du projet P${num}`);
-                container.style.display = "none"; // Cache les images
+                container.style.display = "none"; 
             }
+        }
+
+        // Fonction pour ouvrir une image dans un nouvel onglet
+        function openImageInNewTab(src) {
+            window.open(src, '_blank');
         }
 
         // Fonction pour ajouter une nouvelle image à côté sans supprimer l'ancienne
         function addNextPhoto(num, container) {
-            let currentIndex = container.children.length; // Nombre d'images déjà affichées
+            let currentIndex = container.children.length;
 
             if (currentIndex < images[num].length) {
                 console.log(`Ajout de l'image: ${images[num][currentIndex]}`);
                 let newImg = document.createElement("img");
                 newImg.src = images[num][currentIndex];
 
-                // Ajoute l'événement pour charger l'image suivante
+                // Ajoute l'événement pour ouvrir l'image en grand dans un nouvel onglet
                 newImg.addEventListener("click", function(event) { 
-                    event.stopPropagation(); // Empêche de refermer le titre
-                    addNextPhoto(num, container); 
+                    event.stopPropagation(); 
+                    openImageInNewTab(this.src);
                 });
 
                 container.appendChild(newImg);
