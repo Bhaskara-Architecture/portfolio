@@ -48,6 +48,13 @@
             cursor: pointer; 
             display: block; 
         }
+        .transparent-image {
+            display: block;
+            margin: 50px auto 0 auto;
+            width: 100%;
+            max-width: 600px;
+            opacity: 0.9; /* Ajuste la transparence */
+        }
     </style>
 </head>
 <body>
@@ -69,6 +76,9 @@
             <li onclick="togglePhotos(1)">P01<div id="photos-1" class="photos"></div></li>
         </ul>
     </div>
+
+    <!-- Image PNG transparente -->
+    <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
 
     <script>
         let images = {};
@@ -103,7 +113,7 @@
             }
         }
 
-        // Fonction pour ajouter une nouvelle image à côté de l'existante
+        // Fonction pour ajouter une nouvelle image à côté de l'existante sans supprimer la précédente
         function addNextPhoto(num, container) {
             let currentIndex = container.children.length; // Nombre d'images déjà affichées
             if (currentIndex < images[num].length) {
