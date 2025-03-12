@@ -52,8 +52,8 @@
         .transparent-image {
             display: block;
             margin: 50px auto 0 auto;
-            width: 100%;
-            max-width: 600px;
+            width: 50%; /* Réduction de la taille de l'image PNG par 2 */
+            max-width: 300px; /* Ajustement pour éviter une taille trop grande sur les écrans larges */
             opacity: 0.9; /* Ajuste la transparence */
         }
     </style>
@@ -78,7 +78,7 @@
         </ul>
     </div>
 
-    <!-- Image PNG transparente -->
+    <!-- Image PNG transparente (réduite de moitié) -->
     <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
 
     <script>
@@ -135,6 +135,14 @@
                 container.appendChild(newImg);
             } else {
                 console.log(`Toutes les images du projet P${num} sont affichées.`);
+
+                // Ajoute l'événement sur la première image pour ouvrir en grand une fois toutes chargées
+                if (container.children.length === images[num]) {
+                    let firstImg = container.children[0];
+                    firstImg.addEventListener("click", function() {
+                        openImageInNewTab(this.src);
+                    });
+                }
             }
         }
 
