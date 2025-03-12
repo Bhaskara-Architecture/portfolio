@@ -39,7 +39,6 @@
         .photos { 
             display: none; 
             margin-top: 10px;
-            display: flex; /* Affichage des images en ligne */
             flex-wrap: wrap;
         }
         .photos img { 
@@ -99,21 +98,22 @@
                 container.style.display = "none"; // Cache les images si elles sont visibles
                 container.innerHTML = ''; // Efface les images
             } else {
-                container.innerHTML = ''; 
-                container.style.display = "flex";
+                container.style.display = "flex"; // Afficher les images
+                container.innerHTML = ''; // Réinitialiser le conteneur
 
+                // Ajouter la première image
                 let imgElement = document.createElement("img");
                 imgElement.src = images[num][0];
                 imgElement.setAttribute("data-index", 0);
-
-                // Ajout de l'événement de clic pour ajouter la prochaine image
+                
+                // Ajouter l'événement de clic pour charger l'image suivante
                 imgElement.addEventListener("click", function() { addNextPhoto(num, container); });
 
                 container.appendChild(imgElement);
             }
         }
 
-        // Fonction pour ajouter une nouvelle image à côté de l'existante sans supprimer la précédente
+        // Fonction pour ajouter une nouvelle image à côté sans supprimer l'ancienne
         function addNextPhoto(num, container) {
             let currentIndex = container.children.length; // Nombre d'images déjà affichées
             if (currentIndex < images[num].length) {
