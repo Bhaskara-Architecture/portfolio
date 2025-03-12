@@ -38,10 +38,12 @@
         }
         .photos { 
             display: none; 
-            margin-top: 10px; 
+            margin-top: 10px;
+            display: flex; /* Affichage des images en ligne */
+            flex-wrap: wrap;
         }
         .photos img { 
-            width: 1200px; /* Agrandissement des images (4x plus grandes) */
+            width: 300px; /* Taille standard */
             margin: 5px; 
             cursor: pointer; 
             display: block; 
@@ -83,30 +85,36 @@
         // Fonction pour afficher / masquer les photos sous le projet cliqué
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
-            if (container.style.display === "block") {
+            if (container.style.display === "flex") {
                 container.style.display = "none"; // Cache les images si elles sont visibles
                 container.innerHTML = ''; // Efface les images
             } else {
                 container.innerHTML = ''; 
-                container.style.display = "block";
+                container.style.display = "flex";
 
                 let imgElement = document.createElement("img");
                 imgElement.src = images[num][0];
                 imgElement.setAttribute("data-index", 0);
 
-                // Ajout de l'événement de clic pour changer l'image
-                imgElement.addEventListener("click", function() { nextPhoto(num, imgElement); });
+                // Ajout de l'événement de clic pour ajouter la prochaine image
+                imgElement.addEventListener("click", function() { addNextPhoto(num, container); });
 
                 container.appendChild(imgElement);
             }
         }
 
-        // Fonction pour passer à l'image suivante au clic
-        function nextPhoto(num, imgElement) {
-            let index = parseInt(imgElement.getAttribute("data-index"), 10);
-            index = (index + 1) % images[num].length; // Boucle sur les images du projet
-            imgElement.src = images[num][index];
-            imgElement.setAttribute("data-index", index);
+        // Fonction pour ajouter une nouvelle image à côté de l'existante
+        function addNextPhoto(num, container) {
+            let currentIndex = container.children.length; // Nombre d'images déjà affichées
+            if (currentIndex < images[num].length) {
+                let newImg = document.createElement("img");
+                newImg.src = images[num][currentIndex];
+
+                // Ajoute l'événement pour charger l'image suivante
+                newImg.addEventListener("click", function() { addNextPhoto(num, container); });
+
+                container.appendChild(newImg);
+            }
         }
     </script>
 </body>
