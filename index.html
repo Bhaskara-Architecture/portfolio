@@ -32,19 +32,19 @@
         }
         .titles li { 
             cursor: pointer; 
-            margin: 10px 0; 
+            margin: 5px 0; /* Réduction de l'espacement initial entre les titres */
             font-weight: bold; 
             position: relative;
             font-size: 10px; /* Réduction de la taille des titres */
         }
         .photos { 
             display: none; 
-            margin-top: 10px;
+            margin-top: 5px; /* Réduction de l'espace après ouverture */
             flex-wrap: wrap;
             display: flex;
         }
         .photos img { 
-            width: 390px; /* Augmentation de 30% par rapport à 300px */
+            width: 500px; /* Augmentation de la taille des images */
             margin: 5px; 
             cursor: pointer; 
             display: block; 
@@ -83,8 +83,8 @@
 
     <script>
         let images = {
-            1: 5, 2: 10, 3: 8, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 9, 12: 14, 13: 18
-        }; // Nombre d'images réel par projet
+            1: 5, 2: 10, 3: 13, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 9, 12: 14, 13: 18
+        }; // Nombre d'images réel par projet, avec P03 à 13 images
 
         // Fonction pour afficher / masquer les photos sous le projet cliqué
         function togglePhotos(num) {
