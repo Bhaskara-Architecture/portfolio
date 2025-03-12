@@ -10,21 +10,41 @@
             font-family: 'Lato', sans-serif; 
             text-align: left; 
             padding: 20px; 
-            background-color: #002fa7; /* Bleu Klein */
-            color: white;
+            background-color: white; /* Fond blanc */
+            color: #002fa7; /* Bleu Klein pour le texte */
+            position: relative;
+            min-height: 100vh;
         }
-        h1 { text-transform: uppercase; text-align: center; font-size: 24px; }
-        .container { display: flex; flex-direction: column; align-items: flex-start; }
-        .titles { list-style: none; padding: 0; }
-        .titles li { cursor: pointer; margin: 10px 0; font-weight: bold; position: relative; }
-        .photos { display: none; margin-top: 10px; }
-        .photos img { width: 300px; margin: 5px; cursor: pointer; display: block; }
-        .transparent-image {
-            display: block;
-            margin: 50px auto 0 auto;
-            width: 100%;
-            max-width: 600px;
-            opacity: 0.9; /* Ajuste la transparence */
+        h1 { 
+            text-transform: uppercase; 
+            text-align: center; 
+            font-size: 24px; 
+        }
+        .container { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: flex-start; 
+        }
+        .titles { 
+            list-style: none; 
+            padding: 0; 
+        }
+        .titles li { 
+            cursor: pointer; 
+            margin: 10px 0; 
+            font-weight: bold; 
+            position: relative;
+            font-size: 10px; /* Réduction de la taille des titres */
+        }
+        .photos { 
+            display: none; 
+            margin-top: 10px; 
+        }
+        .photos img { 
+            width: 1200px; /* Agrandissement des images (4x plus grandes) */
+            margin: 5px; 
+            cursor: pointer; 
+            display: block; 
         }
     </style>
 </head>
@@ -32,50 +52,59 @@
     <h1>Bhaskara Architecture</h1>
     <div class="container">
         <ul class="titles">
-            <li onclick="showPhotos(13, this)">P13<div id="photos-13" class="photos"></div></li>
-            <li onclick="showPhotos(12, this)">P12<div id="photos-12" class="photos"></div></li>
-            <li onclick="showPhotos(11, this)">P11<div id="photos-11" class="photos"></div></li>
-            <li onclick="showPhotos(10, this)">P10<div id="photos-10" class="photos"></div></li>
-            <li onclick="showPhotos(9, this)">P09<div id="photos-9" class="photos"></div></li>
-            <li onclick="showPhotos(8, this)">P08<div id="photos-8" class="photos"></div></li>
-            <li onclick="showPhotos(7, this)">P07<div id="photos-7" class="photos"></div></li>
-            <li onclick="showPhotos(6, this)">P06<div id="photos-6" class="photos"></div></li>
-            <li onclick="showPhotos(5, this)">P05<div id="photos-5" class="photos"></div></li>
-            <li onclick="showPhotos(4, this)">P04<div id="photos-4" class="photos"></div></li>
-            <li onclick="showPhotos(3, this)">P03<div id="photos-3" class="photos"></div></li>
-            <li onclick="showPhotos(2, this)">P02<div id="photos-2" class="photos"></div></li>
-            <li onclick="showPhotos(1, this)">P01<div id="photos-1" class="photos"></div></li>
+            <li onclick="togglePhotos(13)">P13<div id="photos-13" class="photos"></div></li>
+            <li onclick="togglePhotos(12)">P12<div id="photos-12" class="photos"></div></li>
+            <li onclick="togglePhotos(11)">P11<div id="photos-11" class="photos"></div></li>
+            <li onclick="togglePhotos(10)">P10<div id="photos-10" class="photos"></div></li>
+            <li onclick="togglePhotos(9)">P09<div id="photos-9" class="photos"></div></li>
+            <li onclick="togglePhotos(8)">P08<div id="photos-8" class="photos"></div></li>
+            <li onclick="togglePhotos(7)">P07<div id="photos-7" class="photos"></div></li>
+            <li onclick="togglePhotos(6)">P06<div id="photos-6" class="photos"></div></li>
+            <li onclick="togglePhotos(5)">P05<div id="photos-5" class="photos"></div></li>
+            <li onclick="togglePhotos(4)">P04<div id="photos-4" class="photos"></div></li>
+            <li onclick="togglePhotos(3)">P03<div id="photos-3" class="photos"></div></li>
+            <li onclick="togglePhotos(2)">P02<div id="photos-2" class="photos"></div></li>
+            <li onclick="togglePhotos(1)">P01<div id="photos-1" class="photos"></div></li>
         </ul>
     </div>
 
-    <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
-
     <script>
         let images = {};
-        let suffixes = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']; // 10 images par projet
-        
+        let suffixes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']; // 10 images par projet
+
+        // Initialisation du tableau des images
         for (let i = 1; i <= 13; i++) {
             images[i] = [];
             for (let j = 0; j < 10; j++) {
-                images[i].push(`images/photo${i}_${j}.jpg`);
+                images[i].push(`images/photo${i}_${suffixes[j]}.jpg`);
             }
         }
 
-        function showPhotos(num, element) {
+        // Fonction pour afficher / masquer les photos sous le projet cliqué
+        function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
-            container.innerHTML = '';
-            container.style.display = 'block';
-            
-            let imgElement = document.createElement("img");
-            imgElement.src = images[num][0];
-            imgElement.setAttribute("data-index", 0);
-            imgElement.onclick = function() { nextPhoto(num, imgElement); };
-            container.appendChild(imgElement);
+            if (container.style.display === "block") {
+                container.style.display = "none"; // Cache les images si elles sont visibles
+                container.innerHTML = ''; // Efface les images
+            } else {
+                container.innerHTML = ''; 
+                container.style.display = "block";
+
+                let imgElement = document.createElement("img");
+                imgElement.src = images[num][0];
+                imgElement.setAttribute("data-index", 0);
+
+                // Ajout de l'événement de clic pour changer l'image
+                imgElement.addEventListener("click", function() { nextPhoto(num, imgElement); });
+
+                container.appendChild(imgElement);
+            }
         }
 
+        // Fonction pour passer à l'image suivante au clic
         function nextPhoto(num, imgElement) {
             let index = parseInt(imgElement.getAttribute("data-index"), 10);
-            index = (index + 1) % images[num].length;
+            index = (index + 1) % images[num].length; // Boucle sur les images du projet
             imgElement.src = images[num][index];
             imgElement.setAttribute("data-index", index);
         }
