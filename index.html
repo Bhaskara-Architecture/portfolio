@@ -17,8 +17,9 @@
         }
         h1 { 
             text-transform: uppercase; 
-            text-align: center; 
+            text-align: left; /* Justification à gauche */
             font-size: 24px; 
+            margin-left: 20px; /* Ajout d'un léger décalage */
         }
         .container { 
             display: flex; 
@@ -96,18 +97,22 @@
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
 
+            // Si le conteneur est masqué, l'afficher
             if (container.style.display === "none" || container.innerHTML === "") {
                 console.log(`Affichage des images du projet P${num}`);
                 container.style.display = "flex"; // Afficher les images
-                
+
+                // Ajouter la première image uniquement si aucune image n'est encore affichée
                 if (container.children.length === 0) {
-                    // Ajouter la première image uniquement si aucune image n'est encore affichée
                     let imgElement = document.createElement("img");
                     imgElement.src = images[num][0];
                     imgElement.setAttribute("data-index", 0);
                     
                     // Ajouter l'événement de clic pour charger l'image suivante
-                    imgElement.addEventListener("click", function() { addNextPhoto(num, container); });
+                    imgElement.addEventListener("click", function(event) { 
+                        event.stopPropagation(); // Empêche de refermer le titre
+                        addNextPhoto(num, container);
+                    });
 
                     container.appendChild(imgElement);
                 }
@@ -120,14 +125,17 @@
         // Fonction pour ajouter une nouvelle image à côté sans supprimer l'ancienne
         function addNextPhoto(num, container) {
             let currentIndex = container.children.length; // Nombre d'images déjà affichées
-            
+
             if (currentIndex < images[num].length) {
                 console.log(`Ajout de l'image: ${images[num][currentIndex]}`);
                 let newImg = document.createElement("img");
                 newImg.src = images[num][currentIndex];
 
                 // Ajoute l'événement pour charger l'image suivante
-                newImg.addEventListener("click", function() { addNextPhoto(num, container); });
+                newImg.addEventListener("click", function(event) { 
+                    event.stopPropagation(); // Empêche de refermer le titre
+                    addNextPhoto(num, container); 
+                });
 
                 container.appendChild(newImg);
             } else {
