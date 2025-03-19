@@ -76,7 +76,7 @@
 
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
-            
+
             if (container.style.display === "none" || container.innerHTML === "") {
                 container.style.display = "block";
                 container.innerHTML = ""; // Réinitialisation du contenu
@@ -95,7 +95,8 @@
         function nextPhoto(num, imgElement) {
             let index = parseInt(imgElement.getAttribute("data-index"), 10);
             index = (index + 1) % images[num]; // Boucle sur les images du projet
-            imgElement.src = `images/photo${num}_${index}.jpg`;
+
+            imgElement.src = `images/photo${num}_${index}.jpg`; // Remplace l'image existante
             imgElement.setAttribute("data-index", index);
         }
     </script>
