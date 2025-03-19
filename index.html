@@ -88,16 +88,17 @@
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
             
-            if (!container.hasChildNodes()) {
+            if (container.style.display === "none" || container.innerHTML === "") {
                 container.style.display = "block";
+                container.innerHTML = ""; // Réinitialisation du contenu
+
                 let imgElement = document.createElement("img");
                 imgElement.src = `images/photo${num}_0.jpg`;
                 imgElement.setAttribute("data-index", 0);
                 imgElement.onclick = function() { nextPhoto(num, imgElement); };
                 container.appendChild(imgElement);
             } else {
-                container.innerHTML = ""; // Ferme seulement si on reclique sur le titre, pas sur l’image
-                container.style.display = "none";
+                container.style.display = "none"; // Cache l'image seulement si on clique sur le titre
             }
         }
 
