@@ -14,7 +14,6 @@
             color: #002fa7; /* Bleu Klein pour le texte */
             position: relative;
             min-height: 100vh;
-            cursor: url('images/cursor.png'), auto; /* Correction du curseur personnalisé */
         }
         h1 { 
             text-transform: uppercase; 
@@ -45,15 +44,7 @@
         .photos img { 
             width: 500px; /* Taille des images */
             margin: 5px; 
-            cursor: pointer; 
             display: block; 
-        }
-        .transparent-image {
-            display: block;
-            margin: 50px auto 0 auto;
-            width: 50%; /* Taille réduite de l'image PNG */
-            max-width: 300px;
-            opacity: 0.9; /* Ajuste la transparence */
         }
     </style>
 </head>
@@ -77,13 +68,10 @@
         </ul>
     </div>
 
-    <!-- Image PNG transparente réintégrée -->
-    <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
-
     <script>
         let images = {
             1: 5, 2: 10, 3: 13, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 20, 12: 14, 13: 18
-        }; // Assure que tous les projets ont le bon nombre d'images
+        }; // Nombre d'images par projet
 
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
@@ -91,22 +79,16 @@
             if (container.style.display === "none" || container.innerHTML === "") {
                 container.style.display = "block";
                 container.innerHTML = ""; // Réinitialisation du contenu
-
-                let imgElement = document.createElement("img");
-                imgElement.src = `images/photo${num}_0.jpg`;
-                imgElement.setAttribute("data-index", 0);
-                imgElement.onclick = function() { nextPhoto(num, imgElement); };
-                container.appendChild(imgElement);
+                
+                for (let i = 0; i < images[num]; i++) {
+                    let imgElement = document.createElement("img");
+                    imgElement.src = `images/photo${num}_${i}.jpg`;
+                    container.appendChild(imgElement);
+                }
             } else {
-                container.style.display = "none"; // Cache les images si on reclique sur le titre
+                container.innerHTML = ""; // Vide le conteneur si on reclique sur le titre
+                container.style.display = "none";
             }
-        }
-
-        function nextPhoto(num, imgElement) {
-            let index = parseInt(imgElement.getAttribute("data-index"), 10);
-            index = (index + 1) % images[num]; // Boucle sur les images du projet
-            imgElement.src = `images/photo${num}_${index}.jpg`;
-            imgElement.setAttribute("data-index", index);
         }
     </script>
 </body>
