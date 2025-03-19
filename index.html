@@ -14,12 +14,13 @@
             color: #002fa7; /* Bleu Klein pour le texte */
             position: relative;
             min-height: 100vh;
+            cursor: url('images/cursor.png') 32 32, auto; /* Curseur personnalisé */
         }
         h1 { 
             text-transform: uppercase; 
             text-align: left; /* Justification à gauche */
-            font-size: 24px; 
-            margin-left: 20px; /* Ajout d'un léger décalage */
+            font-size: 96px; /* Augmentation de 4 fois la taille initiale */
+            margin-left: 20px; /* Alignement avec les titres */
         }
         .container { 
             display: flex; 
@@ -40,8 +41,6 @@
         .photos { 
             display: none; 
             margin-top: 5px; /* Réduction de l'espace après ouverture */
-            flex-wrap: wrap;
-            display: flex;
         }
         .photos img { 
             width: 500px; /* Taille des images */
@@ -86,69 +85,33 @@
             1: 5, 2: 10, 3: 13, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 20, 12: 14, 13: 18
         }; // Assure que P11 contient bien 20 images
 
-        // Fonction pour afficher / masquer les photos sous le projet cliqué
+        // Fonction pour afficher / masquer une seule image sous le projet cliqué
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
-
-            if (container.style.display === "none" || container.innerHTML === "") {
-                console.log(`Affichage des images du projet P${num}`);
-                container.style.display = "flex";
-
-                if (container.children.length === 0) {
-                    let imgElement = document.createElement("img");
-                    imgElement.src = `images/photo${num}_0.jpg`;
-                    imgElement.setAttribute("data-index", 0);
-                    
-                    // Ajoute l'événement pour charger l'image suivante
-                    imgElement.addEventListener("click", function(event) { 
-                        event.stopPropagation(); 
-                        addNextPhoto(num, container);
-                    });
-
-                    container.appendChild(imgElement);
-                }
-            } else {
-                console.log(`Masquage des images du projet P${num}`);
-                container.style.display = "none"; 
-            }
-        }
-
-        // Fonction pour ajouter une nouvelle image à côté sans supprimer l'ancienne
-        function addNextPhoto(num, container) {
-            let currentIndex = container.children.length;
-
-            if (currentIndex < images[num]) {
-                console.log(`Ajout de l'image: images/photo${num}_${currentIndex}.jpg`);
-                let newImg = document.createElement("img");
-                newImg.src = `images/photo${num}_${currentIndex}.jpg`;
-
-                // Ajoute l'événement pour charger la suivante ou ouvrir en grand si c'est la dernière
-                newImg.addEventListener("click", function(event) { 
-                    event.stopPropagation();
-                    if (container.children.length === images[num]) {
-                        openImageInNewTab(this.src);
-                    } else {
-                        addNextPhoto(num, container);
-                    }
+            if (container.innerHTML === "") {
+                container.style.display = "block";
+                let imgElement = document.createElement("img");
+                imgElement.src = `images/photo${num}_0.jpg`;
+                imgElement.setAttribute("data-index", 0);
+                
+                // Ajoute l'événement pour changer l'image en cliquant dessus
+                imgElement.addEventListener("click", function() { 
+                    nextPhoto(num, imgElement); 
                 });
 
-                container.appendChild(newImg);
+                container.appendChild(imgElement);
             } else {
-                console.log(`Toutes les images du projet P${num} sont affichées.`);
-
-                // Ajoute l'événement sur la première image pour ouvrir en grand une fois toutes chargées
-                if (container.children.length === images[num]) {
-                    let firstImg = container.children[0];
-                    firstImg.addEventListener("click", function() {
-                        openImageInNewTab(this.src);
-                    });
-                }
+                container.innerHTML = ""; // Cache l'image si on reclique sur le titre
+                container.style.display = "none";
             }
         }
 
-        // Fonction pour ouvrir une image dans un nouvel onglet (seulement après affichage complet)
-        function openImageInNewTab(src) {
-            window.open(src, '_blank');
+        // Fonction pour afficher l'image suivante
+        function nextPhoto(num, imgElement) {
+            let index = parseInt(imgElement.getAttribute("data-index"), 10);
+            index = (index + 1) % images[num]; // Boucle sur les images du projet
+            imgElement.src = `images/photo${num}_${index}.jpg`;
+            imgElement.setAttribute("data-index", index);
         }
     </script>
 </body>
