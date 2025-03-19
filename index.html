@@ -18,9 +18,9 @@
         }
         h1 { 
             text-transform: uppercase; 
-            text-align: left; /* Justification à gauche */
+            text-align: left; /* Alignement à gauche comme les autres titres */
             font-size: 96px; /* Augmentation de 4 fois la taille initiale */
-            margin-left: 20px; /* Alignement avec les titres */
+            margin-left: 0px; /* Alignement parfait avec les titres */
         }
         .container { 
             display: flex; 
@@ -48,65 +48,38 @@
             cursor: pointer; 
             display: block; 
         }
-        .transparent-image {
-            display: block;
-            margin: 50px auto 0 auto;
-            width: 50%; /* Taille réduite de l'image PNG */
-            max-width: 300px;
-            opacity: 0.9; /* Ajuste la transparence */
-        }
     </style>
 </head>
 <body>
     <h1>Bhaskara Architecture</h1>
     <div class="container">
         <ul class="titles">
-            <li onclick="togglePhotos(13)">P13<div id="photos-13" class="photos"></div></li>
-            <li onclick="togglePhotos(12)">P12<div id="photos-12" class="photos"></div></li>
-            <li onclick="togglePhotos(11)">P11<div id="photos-11" class="photos"></div></li>
-            <li onclick="togglePhotos(10)">P10<div id="photos-10" class="photos"></div></li>
-            <li onclick="togglePhotos(9)">P09<div id="photos-9" class="photos"></div></li>
-            <li onclick="togglePhotos(8)">P08<div id="photos-8" class="photos"></div></li>
-            <li onclick="togglePhotos(7)">P07<div id="photos-7" class="photos"></div></li>
-            <li onclick="togglePhotos(6)">P06<div id="photos-6" class="photos"></div></li>
-            <li onclick="togglePhotos(5)">P05<div id="photos-5" class="photos"></div></li>
-            <li onclick="togglePhotos(4)">P04<div id="photos-4" class="photos"></div></li>
-            <li onclick="togglePhotos(3)">P03<div id="photos-3" class="photos"></div></li>
-            <li onclick="togglePhotos(2)">P02<div id="photos-2" class="photos"></div></li>
             <li onclick="togglePhotos(1)">P01<div id="photos-1" class="photos"></div></li>
+            <li onclick="togglePhotos(2)">P02<div id="photos-2" class="photos"></div></li>
+            <li onclick="togglePhotos(3)">P03<div id="photos-3" class="photos"></div></li>
         </ul>
     </div>
 
-    <!-- Image PNG transparente (réduite de moitié) -->
-    <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
-
     <script>
         let images = {
-            1: 5, 2: 10, 3: 13, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 20, 12: 14, 13: 18
-        }; // Assure que P11 contient bien 20 images
+            1: 5, 2: 10, 3: 13
+        };
 
-        // Fonction pour afficher / masquer une seule image sous le projet cliqué
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
-            if (container.innerHTML === "") {
+            if (!container.hasChildNodes()) {
                 container.style.display = "block";
                 let imgElement = document.createElement("img");
                 imgElement.src = `images/photo${num}_0.jpg`;
                 imgElement.setAttribute("data-index", 0);
-                
-                // Ajoute l'événement pour changer l'image en cliquant dessus
-                imgElement.addEventListener("click", function() { 
-                    nextPhoto(num, imgElement); 
-                });
-
+                imgElement.onclick = function() { nextPhoto(num, imgElement); };
                 container.appendChild(imgElement);
             } else {
-                container.innerHTML = ""; // Cache l'image si on reclique sur le titre
+                container.innerHTML = ""; // Ferme seulement si on reclique sur le titre, pas sur l’image
                 container.style.display = "none";
             }
         }
 
-        // Fonction pour afficher l'image suivante
         function nextPhoto(num, imgElement) {
             let index = parseInt(imgElement.getAttribute("data-index"), 10);
             index = (index + 1) % images[num]; // Boucle sur les images du projet
