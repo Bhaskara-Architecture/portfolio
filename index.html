@@ -14,7 +14,6 @@
             color: #6495ED; /* Bleu choisi */
             position: relative;
             min-height: 100vh;
-            overflow: hidden; /* Empêche le débordement d'images hors de l'écran */
         }
         h1 { 
             text-transform: uppercase; 
@@ -38,9 +37,15 @@
             font-size: 30px; /* Taille multipliée par 3 */
             font-family: 'Cutive Mono', monospace; /* Style machine à écrire */
         }
+        .photos { 
+            display: none; 
+            margin-top: 10px; 
+            display: flex;
+            flex-direction: row; /* Alignement horizontal des images */
+            gap: 10px; /* Espacement entre les images */
+        }
         .photos img { 
-            width: 300px; /* Taille réduite pour éviter l'encombrement */
-            position: absolute; /* Position aléatoire sur l'écran */
+            width: 500px; /* Taille des images */
             cursor: pointer; /* Indiquer que l'image est cliquable */
         }
     </style>
@@ -70,18 +75,11 @@
             1: 5, 2: 10, 3: 13, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 20, 12: 14, 13: 18
         }; // Nombre d'images par projet
 
-        function getRandomPosition() {
-            let screenWidth = window.innerWidth - 320; // Largeur ajustée
-            let screenHeight = window.innerHeight - 240; // Hauteur ajustée
-
-            let x = Math.floor(Math.random() * screenWidth);
-            let y = Math.floor(Math.random() * screenHeight);
-
-            return { x, y };
-        }
-
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
+            container.style.display = "flex";
+            container.innerHTML = ""; // Réinitialisation du contenu
+
             let index = 0;
 
             function displayNextImage() {
@@ -92,15 +90,11 @@
                 imgElement.setAttribute("data-index", index);
                 imgElement.onclick = displayNextImage;
 
-                let position = getRandomPosition();
-                imgElement.style.left = position.x + "px";
-                imgElement.style.top = position.y + "px";
-
-                document.body.appendChild(imgElement);
+                container.appendChild(imgElement);
                 index++;
             }
 
-            displayNextImage();
+            displayNextImage(); // Affiche la première image au clic
         }
     </script>
 </body>
