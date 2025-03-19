@@ -14,7 +14,7 @@
             color: #002fa7; /* Bleu Klein pour le texte */
             position: relative;
             min-height: 100vh;
-            cursor: url('images/cursor.png') 32 32, auto; /* Curseur personnalisé */
+            cursor: url('images/cursor.png'), auto; /* Correction du curseur personnalisé */
         }
         h1 { 
             text-transform: uppercase; 
@@ -98,7 +98,7 @@
                 imgElement.onclick = function() { nextPhoto(num, imgElement); };
                 container.appendChild(imgElement);
             } else {
-                container.style.display = "none"; // Cache l'image seulement si on clique sur le titre
+                container.style.display = "none"; // Cache les images si on reclique sur le titre
             }
         }
 
