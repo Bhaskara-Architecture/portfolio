@@ -77,6 +77,13 @@
 
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
+
+            if (container.style.display === "flex") {
+                container.innerHTML = ""; // Vide le conteneur si on reclique sur le titre
+                container.style.display = "none";
+                return;
+            }
+
             container.style.display = "flex";
             container.innerHTML = ""; // Réinitialisation du contenu
 
@@ -88,18 +95,13 @@
                 let imgElement = document.createElement("img");
                 imgElement.src = `images/photo${num}_${index}.jpg`;
                 imgElement.setAttribute("data-index", index);
-                imgElement.onclick = displayNextImage;
+                imgElement.onclick = function() { displayNextImage(); };
 
                 container.appendChild(imgElement);
                 index++;
             }
 
-            let firstImg = document.createElement("img");
-            firstImg.src = `images/photo${num}_0.jpg`;
-            firstImg.setAttribute("data-index", 0);
-            firstImg.onclick = function() { displayNextImage(); };
-
-            container.appendChild(firstImg);
+            displayNextImage(); // Affiche la première image au clic
         }
     </script>
 </body>
