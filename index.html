@@ -94,7 +94,12 @@
                 index++;
             }
 
-            displayNextImage(); // Affiche la première image au clic
+            let firstImg = document.createElement("img");
+            firstImg.src = `images/photo${num}_0.jpg`;
+            firstImg.setAttribute("data-index", 0);
+            firstImg.onclick = function() { displayNextImage(); };
+
+            container.appendChild(firstImg);
         }
     </script>
 </body>
