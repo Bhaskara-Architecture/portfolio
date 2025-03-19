@@ -101,7 +101,23 @@
                 index++;
             }
 
-            displayNextImage(); // Affiche la première image au clic
+            let firstImg = document.createElement("img");
+            firstImg.src = `images/photo${num}_0.jpg`;
+            firstImg.setAttribute("data-index", 0);
+            firstImg.onclick = function() {
+                let index = parseInt(firstImg.getAttribute("data-index"), 10);
+                index++;
+                if (index < images[num]) {
+                    let nextImg = document.createElement("img");
+                    nextImg.src = `images/photo${num}_${index}.jpg`;
+                    nextImg.setAttribute("data-index", index);
+                    nextImg.onclick = firstImg.onclick; // Propage la logique au nouvel élément
+                    container.appendChild(nextImg);
+                    firstImg.setAttribute("data-index", index);
+                }
+            };
+
+            container.appendChild(firstImg);
         }
     </script>
 </body>
