@@ -11,15 +11,15 @@
             text-align: left; 
             padding: 20px; 
             background-color: white; /* Fond blanc */
-            color: #002fa7; /* Bleu Klein pour le texte */
+            color: #002FA7; /* Bleu Klein */
             position: relative;
             min-height: 100vh;
         }
         h1 { 
             text-transform: uppercase; 
-            text-align: left; /* Alignement à gauche comme les autres titres */
-            font-size: 96px; /* Augmentation de 4 fois la taille initiale */
-            margin-left: 0px; /* Alignement parfait avec les titres */
+            text-align: right; /* Alignement à droite */
+            font-size: 96px; /* Taille du texte 4x plus grande */
+            margin-right: 20px; /* Décalage pour bien coller à droite */
         }
         .container { 
             display: flex; 
@@ -32,19 +32,19 @@
         }
         .titles li { 
             cursor: pointer; 
-            margin: 5px 0; /* Réduction de l'espacement initial entre les titres */
+            margin: 10px 0; /* Espacement plus grand entre les titres */
             font-weight: bold; 
-            position: relative;
-            font-size: 10px; /* Réduction de la taille des titres */
+            font-size: 30px; /* Taille multipliée par 3 */
         }
         .photos { 
             display: none; 
-            margin-top: 5px; /* Réduction de l'espace après ouverture */
+            margin-top: 10px; 
         }
         .photos img { 
             width: 500px; /* Taille des images */
             margin: 5px; 
             display: block; 
+            cursor: pointer; /* Indiquer que l'image est cliquable */
         }
     </style>
 </head>
@@ -80,15 +80,22 @@
                 container.style.display = "block";
                 container.innerHTML = ""; // Réinitialisation du contenu
                 
-                for (let i = 0; i < images[num]; i++) {
-                    let imgElement = document.createElement("img");
-                    imgElement.src = `images/photo${num}_${i}.jpg`;
-                    container.appendChild(imgElement);
-                }
+                let imgElement = document.createElement("img");
+                imgElement.src = `images/photo${num}_0.jpg`;
+                imgElement.setAttribute("data-index", 0);
+                imgElement.onclick = function() { nextPhoto(num, imgElement); };
+                container.appendChild(imgElement);
             } else {
                 container.innerHTML = ""; // Vide le conteneur si on reclique sur le titre
                 container.style.display = "none";
             }
+        }
+
+        function nextPhoto(num, imgElement) {
+            let index = parseInt(imgElement.getAttribute("data-index"), 10);
+            index = (index + 1) % images[num]; // Boucle sur les images du projet
+            imgElement.src = `images/photo${num}_${index}.jpg`;
+            imgElement.setAttribute("data-index", index);
         }
     </script>
 </body>
