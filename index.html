@@ -48,25 +48,46 @@
             cursor: pointer; 
             display: block; 
         }
+        .transparent-image {
+            display: block;
+            margin: 50px auto 0 auto;
+            width: 50%; /* Taille réduite de l'image PNG */
+            max-width: 300px;
+            opacity: 0.9; /* Ajuste la transparence */
+        }
     </style>
 </head>
 <body>
     <h1>Bhaskara Architecture</h1>
     <div class="container">
         <ul class="titles">
-            <li onclick="togglePhotos(1)">P01<div id="photos-1" class="photos"></div></li>
-            <li onclick="togglePhotos(2)">P02<div id="photos-2" class="photos"></div></li>
+            <li onclick="togglePhotos(13)">P13<div id="photos-13" class="photos"></div></li>
+            <li onclick="togglePhotos(12)">P12<div id="photos-12" class="photos"></div></li>
+            <li onclick="togglePhotos(11)">P11<div id="photos-11" class="photos"></div></li>
+            <li onclick="togglePhotos(10)">P10<div id="photos-10" class="photos"></div></li>
+            <li onclick="togglePhotos(9)">P09<div id="photos-9" class="photos"></div></li>
+            <li onclick="togglePhotos(8)">P08<div id="photos-8" class="photos"></div></li>
+            <li onclick="togglePhotos(7)">P07<div id="photos-7" class="photos"></div></li>
+            <li onclick="togglePhotos(6)">P06<div id="photos-6" class="photos"></div></li>
+            <li onclick="togglePhotos(5)">P05<div id="photos-5" class="photos"></div></li>
+            <li onclick="togglePhotos(4)">P04<div id="photos-4" class="photos"></div></li>
             <li onclick="togglePhotos(3)">P03<div id="photos-3" class="photos"></div></li>
+            <li onclick="togglePhotos(2)">P02<div id="photos-2" class="photos"></div></li>
+            <li onclick="togglePhotos(1)">P01<div id="photos-1" class="photos"></div></li>
         </ul>
     </div>
 
+    <!-- Image PNG transparente réintégrée -->
+    <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
+
     <script>
         let images = {
-            1: 5, 2: 10, 3: 13
-        };
+            1: 5, 2: 10, 3: 13, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 20, 12: 14, 13: 18
+        }; // Assure que tous les projets ont le bon nombre d'images
 
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
+            
             if (!container.hasChildNodes()) {
                 container.style.display = "block";
                 let imgElement = document.createElement("img");
