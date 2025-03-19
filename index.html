@@ -14,6 +14,7 @@
             color: #6495ED; /* Bleu choisi */
             position: relative;
             min-height: 100vh;
+            overflow: hidden; /* Empêche le débordement d'images hors de l'écran */
         }
         h1 { 
             text-transform: uppercase; 
@@ -37,14 +38,9 @@
             font-size: 30px; /* Taille multipliée par 3 */
             font-family: 'Cutive Mono', monospace; /* Style machine à écrire */
         }
-        .photos { 
-            display: none; 
-            margin-top: 10px; 
-        }
         .photos img { 
-            width: 500px; /* Taille des images */
-            margin: 5px; 
-            display: block; 
+            width: 300px; /* Taille réduite pour éviter l'encombrement */
+            position: absolute; /* Position aléatoire sur l'écran */
             cursor: pointer; /* Indiquer que l'image est cliquable */
         }
     </style>
@@ -74,30 +70,37 @@
             1: 5, 2: 10, 3: 13, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 20, 12: 14, 13: 18
         }; // Nombre d'images par projet
 
-        function togglePhotos(num) {
-            let container = document.getElementById(`photos-${num}`);
+        function getRandomPosition() {
+            let screenWidth = window.innerWidth - 320; // Largeur ajustée
+            let screenHeight = window.innerHeight - 240; // Hauteur ajustée
 
-            if (container.style.display === "none" || container.innerHTML === "") {
-                container.style.display = "block";
-                container.innerHTML = ""; // Réinitialisation du contenu
+            let x = Math.floor(Math.random() * screenWidth);
+            let y = Math.floor(Math.random() * screenHeight);
 
-                let imgElement = document.createElement("img");
-                imgElement.src = `images/photo${num}_0.jpg`;
-                imgElement.setAttribute("data-index", 0);
-                imgElement.onclick = function() { nextPhoto(num, imgElement); };
-                container.appendChild(imgElement);
-            } else {
-                container.innerHTML = ""; // Vide le conteneur si on reclique sur le titre
-                container.style.display = "none";
-            }
+            return { x, y };
         }
 
-        function nextPhoto(num, imgElement) {
-            let index = parseInt(imgElement.getAttribute("data-index"), 10);
-            index = (index + 1) % images[num]; // Boucle sur les images du projet
+        function togglePhotos(num) {
+            let container = document.getElementById(`photos-${num}`);
+            let index = 0;
 
-            imgElement.src = `images/photo${num}_${index}.jpg`; // Remplace l'image existante
-            imgElement.setAttribute("data-index", index);
+            function displayNextImage() {
+                if (index >= images[num]) return;
+
+                let imgElement = document.createElement("img");
+                imgElement.src = `images/photo${num}_${index}.jpg`;
+                imgElement.setAttribute("data-index", index);
+                imgElement.onclick = displayNextImage;
+
+                let position = getRandomPosition();
+                imgElement.style.left = position.x + "px";
+                imgElement.style.top = position.y + "px";
+
+                document.body.appendChild(imgElement);
+                index++;
+            }
+
+            displayNextImage();
         }
     </script>
 </body>
