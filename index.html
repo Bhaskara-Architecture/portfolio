@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio avec descriptions JSON</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio avec vidéos enchaînées et descriptions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     body, html {
       margin: 0;
@@ -14,14 +14,22 @@
       background: transparent;
     }
 
-    .background-video {
+    .video-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
       z-index: -2;
+    }
+
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       transition: opacity 1s ease-in-out;
     }
 
@@ -42,25 +50,23 @@
       margin: 30px 0;
     }
 
-    .intro-text {
-      text-align: center;
-      font-size: 16px;
-      font-weight: 300;
-      max-width: 600px;
-      margin: 40px auto;
-      background: none;
-      color: #002fa7;
-    }
-
     .project {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
     }
 
     .project-title {
       font-weight: bold;
-      font-size: 12px;
+      font-size: 14px;
       margin-bottom: 10px;
+    }
+
+    .project-description {
+      font-size: 39px;
+      text-align: left;
+      max-width: 800px;
+      margin: 20px auto;
+      line-height: 1.5;
     }
 
     .photos {
@@ -77,15 +83,6 @@
       cursor: pointer;
     }
 
-    .project-description {
-      font-size: 13px;
-      line-height: 1.5;
-      max-width: 600px;
-      margin: 15px auto 30px;
-      font-style: italic;
-      color: #002fa7;
-    }
-
     .transparent-image {
       display: block;
       margin: 50px auto 0 auto;
@@ -96,17 +93,16 @@
   </style>
 </head>
 <body>
-  <video id="bgVideo" autoplay muted playsinline class="background-video"></video>
+  <div class="video-container">
+    <video id="video1" class="background-video" autoplay muted playsinline></video>
+    <video id="video2" class="background-video" muted playsinline style="opacity: 0;"></video>
+  </div>
   <div class="overlay"></div>
 
   <h1>Bhaskara Architecture</h1>
-
-  <div class="intro-text">
-    <p>Exploration architecturale à travers projets, matières et lumière.</p>
-    <p>Chaque image raconte une intention, un espace ou un souvenir construit.</p>
-  </div>
   <div class="project">
     <div class="project-title">P13</div>
+    <div class="project-description" id="desc-P13"></div>
     <div class="photos">
       <a href="images/photo13_0.jpg" target="_blank"><img src="images/photo13_0.jpg" alt="P13 image 0"></a>
       <a href="images/photo13_1.jpg" target="_blank"><img src="images/photo13_1.jpg" alt="P13 image 1"></a>
@@ -127,11 +123,11 @@
       <a href="images/photo13_16.jpg" target="_blank"><img src="images/photo13_16.jpg" alt="P13 image 16"></a>
       <a href="images/photo13_17.jpg" target="_blank"><img src="images/photo13_17.jpg" alt="P13 image 17"></a>
     </div>
-    <div class="project-description" id="desc-P13"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P12</div>
+    <div class="project-description" id="desc-P12"></div>
     <div class="photos">
       <a href="images/photo12_0.jpg" target="_blank"><img src="images/photo12_0.jpg" alt="P12 image 0"></a>
       <a href="images/photo12_1.jpg" target="_blank"><img src="images/photo12_1.jpg" alt="P12 image 1"></a>
@@ -148,11 +144,11 @@
       <a href="images/photo12_12.jpg" target="_blank"><img src="images/photo12_12.jpg" alt="P12 image 12"></a>
       <a href="images/photo12_13.jpg" target="_blank"><img src="images/photo12_13.jpg" alt="P12 image 13"></a>
     </div>
-    <div class="project-description" id="desc-P12"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P11</div>
+    <div class="project-description" id="desc-P11"></div>
     <div class="photos">
       <a href="images/photo11_0.jpg" target="_blank"><img src="images/photo11_0.jpg" alt="P11 image 0"></a>
       <a href="images/photo11_1.jpg" target="_blank"><img src="images/photo11_1.jpg" alt="P11 image 1"></a>
@@ -175,11 +171,11 @@
       <a href="images/photo11_18.jpg" target="_blank"><img src="images/photo11_18.jpg" alt="P11 image 18"></a>
       <a href="images/photo11_19.jpg" target="_blank"><img src="images/photo11_19.jpg" alt="P11 image 19"></a>
     </div>
-    <div class="project-description" id="desc-P11"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P10</div>
+    <div class="project-description" id="desc-P10"></div>
     <div class="photos">
       <a href="images/photo10_0.jpg" target="_blank"><img src="images/photo10_0.jpg" alt="P10 image 0"></a>
       <a href="images/photo10_1.jpg" target="_blank"><img src="images/photo10_1.jpg" alt="P10 image 1"></a>
@@ -202,11 +198,11 @@
       <a href="images/photo10_18.jpg" target="_blank"><img src="images/photo10_18.jpg" alt="P10 image 18"></a>
       <a href="images/photo10_19.jpg" target="_blank"><img src="images/photo10_19.jpg" alt="P10 image 19"></a>
     </div>
-    <div class="project-description" id="desc-P10"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P09</div>
+    <div class="project-description" id="desc-P09"></div>
     <div class="photos">
       <a href="images/photo9_0.jpg" target="_blank"><img src="images/photo9_0.jpg" alt="P09 image 0"></a>
       <a href="images/photo9_1.jpg" target="_blank"><img src="images/photo9_1.jpg" alt="P09 image 1"></a>
@@ -216,11 +212,11 @@
       <a href="images/photo9_5.jpg" target="_blank"><img src="images/photo9_5.jpg" alt="P09 image 5"></a>
       <a href="images/photo9_6.jpg" target="_blank"><img src="images/photo9_6.jpg" alt="P09 image 6"></a>
     </div>
-    <div class="project-description" id="desc-P09"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P08</div>
+    <div class="project-description" id="desc-P08"></div>
     <div class="photos">
       <a href="images/photo8_0.jpg" target="_blank"><img src="images/photo8_0.jpg" alt="P08 image 0"></a>
       <a href="images/photo8_1.jpg" target="_blank"><img src="images/photo8_1.jpg" alt="P08 image 1"></a>
@@ -243,11 +239,11 @@
       <a href="images/photo8_18.jpg" target="_blank"><img src="images/photo8_18.jpg" alt="P08 image 18"></a>
       <a href="images/photo8_19.jpg" target="_blank"><img src="images/photo8_19.jpg" alt="P08 image 19"></a>
     </div>
-    <div class="project-description" id="desc-P08"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P07</div>
+    <div class="project-description" id="desc-P07"></div>
     <div class="photos">
       <a href="images/photo7_0.jpg" target="_blank"><img src="images/photo7_0.jpg" alt="P07 image 0"></a>
       <a href="images/photo7_1.jpg" target="_blank"><img src="images/photo7_1.jpg" alt="P07 image 1"></a>
@@ -262,11 +258,11 @@
       <a href="images/photo7_10.jpg" target="_blank"><img src="images/photo7_10.jpg" alt="P07 image 10"></a>
       <a href="images/photo7_11.jpg" target="_blank"><img src="images/photo7_11.jpg" alt="P07 image 11"></a>
     </div>
-    <div class="project-description" id="desc-P07"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P06</div>
+    <div class="project-description" id="desc-P06"></div>
     <div class="photos">
       <a href="images/photo6_0.jpg" target="_blank"><img src="images/photo6_0.jpg" alt="P06 image 0"></a>
       <a href="images/photo6_1.jpg" target="_blank"><img src="images/photo6_1.jpg" alt="P06 image 1"></a>
@@ -284,11 +280,11 @@
       <a href="images/photo6_13.jpg" target="_blank"><img src="images/photo6_13.jpg" alt="P06 image 13"></a>
       <a href="images/photo6_14.jpg" target="_blank"><img src="images/photo6_14.jpg" alt="P06 image 14"></a>
     </div>
-    <div class="project-description" id="desc-P06"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P05</div>
+    <div class="project-description" id="desc-P05"></div>
     <div class="photos">
       <a href="images/photo5_0.jpg" target="_blank"><img src="images/photo5_0.jpg" alt="P05 image 0"></a>
       <a href="images/photo5_1.jpg" target="_blank"><img src="images/photo5_1.jpg" alt="P05 image 1"></a>
@@ -297,11 +293,11 @@
       <a href="images/photo5_4.jpg" target="_blank"><img src="images/photo5_4.jpg" alt="P05 image 4"></a>
       <a href="images/photo5_5.jpg" target="_blank"><img src="images/photo5_5.jpg" alt="P05 image 5"></a>
     </div>
-    <div class="project-description" id="desc-P05"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P04</div>
+    <div class="project-description" id="desc-P04"></div>
     <div class="photos">
       <a href="images/photo4_0.jpg" target="_blank"><img src="images/photo4_0.jpg" alt="P04 image 0"></a>
       <a href="images/photo4_1.jpg" target="_blank"><img src="images/photo4_1.jpg" alt="P04 image 1"></a>
@@ -324,11 +320,11 @@
       <a href="images/photo4_18.jpg" target="_blank"><img src="images/photo4_18.jpg" alt="P04 image 18"></a>
       <a href="images/photo4_19.jpg" target="_blank"><img src="images/photo4_19.jpg" alt="P04 image 19"></a>
     </div>
-    <div class="project-description" id="desc-P04"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P03</div>
+    <div class="project-description" id="desc-P03"></div>
     <div class="photos">
       <a href="images/photo3_0.jpg" target="_blank"><img src="images/photo3_0.jpg" alt="P03 image 0"></a>
       <a href="images/photo3_1.jpg" target="_blank"><img src="images/photo3_1.jpg" alt="P03 image 1"></a>
@@ -344,11 +340,11 @@
       <a href="images/photo3_11.jpg" target="_blank"><img src="images/photo3_11.jpg" alt="P03 image 11"></a>
       <a href="images/photo3_12.jpg" target="_blank"><img src="images/photo3_12.jpg" alt="P03 image 12"></a>
     </div>
-    <div class="project-description" id="desc-P03"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P02</div>
+    <div class="project-description" id="desc-P02"></div>
     <div class="photos">
       <a href="images/photo2_0.jpg" target="_blank"><img src="images/photo2_0.jpg" alt="P02 image 0"></a>
       <a href="images/photo2_1.jpg" target="_blank"><img src="images/photo2_1.jpg" alt="P02 image 1"></a>
@@ -361,11 +357,11 @@
       <a href="images/photo2_8.jpg" target="_blank"><img src="images/photo2_8.jpg" alt="P02 image 8"></a>
       <a href="images/photo2_9.jpg" target="_blank"><img src="images/photo2_9.jpg" alt="P02 image 9"></a>
     </div>
-    <div class="project-description" id="desc-P02"></div>
   </div>
 
   <div class="project">
     <div class="project-title">P01</div>
+    <div class="project-description" id="desc-P01"></div>
     <div class="photos">
       <a href="images/photo1_0.jpg" target="_blank"><img src="images/photo1_0.jpg" alt="P01 image 0"></a>
       <a href="images/photo1_1.jpg" target="_blank"><img src="images/photo1_1.jpg" alt="P01 image 1"></a>
@@ -373,7 +369,6 @@
       <a href="images/photo1_3.jpg" target="_blank"><img src="images/photo1_3.jpg" alt="P01 image 3"></a>
       <a href="images/photo1_4.jpg" target="_blank"><img src="images/photo1_4.jpg" alt="P01 image 4"></a>
     </div>
-    <div class="project-description" id="desc-P01"></div>
   </div>
 
 
@@ -387,31 +382,35 @@
     ];
 
     let current = 0;
-    const videoElement = document.getElementById("bgVideo");
+    const videoEls = [document.getElementById("video1"), document.getElementById("video2")];
 
-    function playNextVideo() {
-      videoElement.style.opacity = 0;
+    function switchVideo() {
+      const currentEl = videoEls[current % 2];
+      const nextEl = videoEls[(current + 1) % 2];
+      nextEl.src = videos[current];
+      nextEl.style.opacity = 0;
+      nextEl.load();
+      nextEl.play();
+
       setTimeout(() => {
-        videoElement.src = videos[current];
-        videoElement.load();
-        videoElement.play();
-        videoElement.style.opacity = 1;
+        nextEl.style.opacity = 1;
+        currentEl.style.opacity = 0;
         current = (current + 1) % videos.length;
       }, 1000);
     }
 
-    videoElement.addEventListener("ended", playNextVideo);
-    playNextVideo();
+    videoEls[0].addEventListener("ended", switchVideo);
+    videoEls[1].addEventListener("ended", switchVideo);
 
-    // Charger les descriptions depuis descriptions.json
-    fetch('descriptions.json')
-      .then(response => response.json())
+    videoEls[0].src = videos[0];
+    videoEls[0].play();
+
+    fetch("descriptions.json")
+      .then(res => res.json())
       .then(data => {
-        Object.keys(data).forEach(key => {
-          const element = document.getElementById(`desc-${key}`);
-          if (element) {
-            element.textContent = data[key];
-          }
+        Object.entries(data).forEach(([key, text]) => {
+          const el = document.getElementById("desc-" + key);
+          if (el) el.textContent = text;
         });
       });
   </script>
