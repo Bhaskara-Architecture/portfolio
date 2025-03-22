@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio avec vidéos enchaînées et descriptions</title>
+  <title>Portfolio avec sommaire latéral</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     body, html {
@@ -92,17 +92,16 @@
     }
 
     .project-description {
-      font-size: 33px;
-      text-align: left;
-      max-width: 800px;
-      margin: 20px auto;
-      font-weight: bold;
-      font-variant: small-caps;
-      text-transform: lowercase;
-      font-feature-settings: 'lnum' 0;
-      font-size-adjust: 0.5;
-      line-height: 1.1;
-    }
+font-size: 33px;
+text-align: left;
+max-width: 800px;
+margin: 20px auto;
+font-weight: bold;
+font-variant: small-caps;
+text-transform: lowercase;
+font-feature-settings: 'lnum' 0;
+line-height: 1.1;
+}
 
     .photos {
       display: flex;
@@ -125,26 +124,35 @@
       max-width: 300px;
       opacity: 0.9;
     }
+  
+@media screen and (max-width: 768px) {
+  .project-description {
+font-size: 33px;
+text-align: left;
+max-width: 800px;
+margin: 20px auto;
+font-weight: bold;
+font-variant: small-caps;
+text-transform: lowercase;
+font-feature-settings: 'lnum' 0;
+line-height: 1.1;
+}
 
-    @media screen and (max-width: 768px) {
-      .project-description {
-        font-size: 18px;
-        text-align: center;
-        padding: 0 10px;
-      }
+  .sidebar {
+    display: none;
+  }
 
-      .sidebar {
-        display: none;
-      }
+  h1 {
+    font-size: 18px;
+  }
+}
 
-      h1 {
-        font-size: 18px;
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
-  <div class="sidebar" id="sidebar"></div>
+  <div class="sidebar" id="sidebar">
+    <!-- Sommaire dynamique -->
+  </div>
 
   <div class="video-container">
     <video id="video1" class="background-video" autoplay muted playsinline></video>
@@ -154,6 +162,285 @@
 
   <div class="main">
     <h1>Bhaskara Architecture</h1>
+  <div class="project" id="P13">
+    <div class="project-title">P13</div>
+    <div class="project-description" id="desc-P13"></div>
+    <div class="photos">
+      <a href="images/photo13_0.jpg" target="_blank"><img src="images/photo13_0.jpg" alt="P13 image 0"></a>
+      <a href="images/photo13_1.jpg" target="_blank"><img src="images/photo13_1.jpg" alt="P13 image 1"></a>
+      <a href="images/photo13_2.jpg" target="_blank"><img src="images/photo13_2.jpg" alt="P13 image 2"></a>
+      <a href="images/photo13_3.jpg" target="_blank"><img src="images/photo13_3.jpg" alt="P13 image 3"></a>
+      <a href="images/photo13_4.jpg" target="_blank"><img src="images/photo13_4.jpg" alt="P13 image 4"></a>
+      <a href="images/photo13_5.jpg" target="_blank"><img src="images/photo13_5.jpg" alt="P13 image 5"></a>
+      <a href="images/photo13_6.jpg" target="_blank"><img src="images/photo13_6.jpg" alt="P13 image 6"></a>
+      <a href="images/photo13_7.jpg" target="_blank"><img src="images/photo13_7.jpg" alt="P13 image 7"></a>
+      <a href="images/photo13_8.jpg" target="_blank"><img src="images/photo13_8.jpg" alt="P13 image 8"></a>
+      <a href="images/photo13_9.jpg" target="_blank"><img src="images/photo13_9.jpg" alt="P13 image 9"></a>
+      <a href="images/photo13_10.jpg" target="_blank"><img src="images/photo13_10.jpg" alt="P13 image 10"></a>
+      <a href="images/photo13_11.jpg" target="_blank"><img src="images/photo13_11.jpg" alt="P13 image 11"></a>
+      <a href="images/photo13_12.jpg" target="_blank"><img src="images/photo13_12.jpg" alt="P13 image 12"></a>
+      <a href="images/photo13_13.jpg" target="_blank"><img src="images/photo13_13.jpg" alt="P13 image 13"></a>
+      <a href="images/photo13_14.jpg" target="_blank"><img src="images/photo13_14.jpg" alt="P13 image 14"></a>
+      <a href="images/photo13_15.jpg" target="_blank"><img src="images/photo13_15.jpg" alt="P13 image 15"></a>
+      <a href="images/photo13_16.jpg" target="_blank"><img src="images/photo13_16.jpg" alt="P13 image 16"></a>
+      <a href="images/photo13_17.jpg" target="_blank"><img src="images/photo13_17.jpg" alt="P13 image 17"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P12">
+    <div class="project-title">P12</div>
+    <div class="project-description" id="desc-P12"></div>
+    <div class="photos">
+      <a href="images/photo12_0.jpg" target="_blank"><img src="images/photo12_0.jpg" alt="P12 image 0"></a>
+      <a href="images/photo12_1.jpg" target="_blank"><img src="images/photo12_1.jpg" alt="P12 image 1"></a>
+      <a href="images/photo12_2.jpg" target="_blank"><img src="images/photo12_2.jpg" alt="P12 image 2"></a>
+      <a href="images/photo12_3.jpg" target="_blank"><img src="images/photo12_3.jpg" alt="P12 image 3"></a>
+      <a href="images/photo12_4.jpg" target="_blank"><img src="images/photo12_4.jpg" alt="P12 image 4"></a>
+      <a href="images/photo12_5.jpg" target="_blank"><img src="images/photo12_5.jpg" alt="P12 image 5"></a>
+      <a href="images/photo12_6.jpg" target="_blank"><img src="images/photo12_6.jpg" alt="P12 image 6"></a>
+      <a href="images/photo12_7.jpg" target="_blank"><img src="images/photo12_7.jpg" alt="P12 image 7"></a>
+      <a href="images/photo12_8.jpg" target="_blank"><img src="images/photo12_8.jpg" alt="P12 image 8"></a>
+      <a href="images/photo12_9.jpg" target="_blank"><img src="images/photo12_9.jpg" alt="P12 image 9"></a>
+      <a href="images/photo12_10.jpg" target="_blank"><img src="images/photo12_10.jpg" alt="P12 image 10"></a>
+      <a href="images/photo12_11.jpg" target="_blank"><img src="images/photo12_11.jpg" alt="P12 image 11"></a>
+      <a href="images/photo12_12.jpg" target="_blank"><img src="images/photo12_12.jpg" alt="P12 image 12"></a>
+      <a href="images/photo12_13.jpg" target="_blank"><img src="images/photo12_13.jpg" alt="P12 image 13"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P11">
+    <div class="project-title">P11</div>
+    <div class="project-description" id="desc-P11"></div>
+    <div class="photos">
+      <a href="images/photo11_0.jpg" target="_blank"><img src="images/photo11_0.jpg" alt="P11 image 0"></a>
+      <a href="images/photo11_1.jpg" target="_blank"><img src="images/photo11_1.jpg" alt="P11 image 1"></a>
+      <a href="images/photo11_2.jpg" target="_blank"><img src="images/photo11_2.jpg" alt="P11 image 2"></a>
+      <a href="images/photo11_3.jpg" target="_blank"><img src="images/photo11_3.jpg" alt="P11 image 3"></a>
+      <a href="images/photo11_4.jpg" target="_blank"><img src="images/photo11_4.jpg" alt="P11 image 4"></a>
+      <a href="images/photo11_5.jpg" target="_blank"><img src="images/photo11_5.jpg" alt="P11 image 5"></a>
+      <a href="images/photo11_6.jpg" target="_blank"><img src="images/photo11_6.jpg" alt="P11 image 6"></a>
+      <a href="images/photo11_7.jpg" target="_blank"><img src="images/photo11_7.jpg" alt="P11 image 7"></a>
+      <a href="images/photo11_8.jpg" target="_blank"><img src="images/photo11_8.jpg" alt="P11 image 8"></a>
+      <a href="images/photo11_9.jpg" target="_blank"><img src="images/photo11_9.jpg" alt="P11 image 9"></a>
+      <a href="images/photo11_10.jpg" target="_blank"><img src="images/photo11_10.jpg" alt="P11 image 10"></a>
+      <a href="images/photo11_11.jpg" target="_blank"><img src="images/photo11_11.jpg" alt="P11 image 11"></a>
+      <a href="images/photo11_12.jpg" target="_blank"><img src="images/photo11_12.jpg" alt="P11 image 12"></a>
+      <a href="images/photo11_13.jpg" target="_blank"><img src="images/photo11_13.jpg" alt="P11 image 13"></a>
+      <a href="images/photo11_14.jpg" target="_blank"><img src="images/photo11_14.jpg" alt="P11 image 14"></a>
+      <a href="images/photo11_15.jpg" target="_blank"><img src="images/photo11_15.jpg" alt="P11 image 15"></a>
+      <a href="images/photo11_16.jpg" target="_blank"><img src="images/photo11_16.jpg" alt="P11 image 16"></a>
+      <a href="images/photo11_17.jpg" target="_blank"><img src="images/photo11_17.jpg" alt="P11 image 17"></a>
+      <a href="images/photo11_18.jpg" target="_blank"><img src="images/photo11_18.jpg" alt="P11 image 18"></a>
+      <a href="images/photo11_19.jpg" target="_blank"><img src="images/photo11_19.jpg" alt="P11 image 19"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P10">
+    <div class="project-title">P10</div>
+    <div class="project-description" id="desc-P10"></div>
+    <div class="photos">
+      <a href="images/photo10_0.jpg" target="_blank"><img src="images/photo10_0.jpg" alt="P10 image 0"></a>
+      <a href="images/photo10_1.jpg" target="_blank"><img src="images/photo10_1.jpg" alt="P10 image 1"></a>
+      <a href="images/photo10_2.jpg" target="_blank"><img src="images/photo10_2.jpg" alt="P10 image 2"></a>
+      <a href="images/photo10_3.jpg" target="_blank"><img src="images/photo10_3.jpg" alt="P10 image 3"></a>
+      <a href="images/photo10_4.jpg" target="_blank"><img src="images/photo10_4.jpg" alt="P10 image 4"></a>
+      <a href="images/photo10_5.jpg" target="_blank"><img src="images/photo10_5.jpg" alt="P10 image 5"></a>
+      <a href="images/photo10_6.jpg" target="_blank"><img src="images/photo10_6.jpg" alt="P10 image 6"></a>
+      <a href="images/photo10_7.jpg" target="_blank"><img src="images/photo10_7.jpg" alt="P10 image 7"></a>
+      <a href="images/photo10_8.jpg" target="_blank"><img src="images/photo10_8.jpg" alt="P10 image 8"></a>
+      <a href="images/photo10_9.jpg" target="_blank"><img src="images/photo10_9.jpg" alt="P10 image 9"></a>
+      <a href="images/photo10_10.jpg" target="_blank"><img src="images/photo10_10.jpg" alt="P10 image 10"></a>
+      <a href="images/photo10_11.jpg" target="_blank"><img src="images/photo10_11.jpg" alt="P10 image 11"></a>
+      <a href="images/photo10_12.jpg" target="_blank"><img src="images/photo10_12.jpg" alt="P10 image 12"></a>
+      <a href="images/photo10_13.jpg" target="_blank"><img src="images/photo10_13.jpg" alt="P10 image 13"></a>
+      <a href="images/photo10_14.jpg" target="_blank"><img src="images/photo10_14.jpg" alt="P10 image 14"></a>
+      <a href="images/photo10_15.jpg" target="_blank"><img src="images/photo10_15.jpg" alt="P10 image 15"></a>
+      <a href="images/photo10_16.jpg" target="_blank"><img src="images/photo10_16.jpg" alt="P10 image 16"></a>
+      <a href="images/photo10_17.jpg" target="_blank"><img src="images/photo10_17.jpg" alt="P10 image 17"></a>
+      <a href="images/photo10_18.jpg" target="_blank"><img src="images/photo10_18.jpg" alt="P10 image 18"></a>
+      <a href="images/photo10_19.jpg" target="_blank"><img src="images/photo10_19.jpg" alt="P10 image 19"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P09">
+    <div class="project-title">P09</div>
+    <div class="project-description" id="desc-P09"></div>
+    <div class="photos">
+      <a href="images/photo9_0.jpg" target="_blank"><img src="images/photo9_0.jpg" alt="P09 image 0"></a>
+      <a href="images/photo9_1.jpg" target="_blank"><img src="images/photo9_1.jpg" alt="P09 image 1"></a>
+      <a href="images/photo9_2.jpg" target="_blank"><img src="images/photo9_2.jpg" alt="P09 image 2"></a>
+      <a href="images/photo9_3.jpg" target="_blank"><img src="images/photo9_3.jpg" alt="P09 image 3"></a>
+      <a href="images/photo9_4.jpg" target="_blank"><img src="images/photo9_4.jpg" alt="P09 image 4"></a>
+      <a href="images/photo9_5.jpg" target="_blank"><img src="images/photo9_5.jpg" alt="P09 image 5"></a>
+      <a href="images/photo9_6.jpg" target="_blank"><img src="images/photo9_6.jpg" alt="P09 image 6"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P08">
+    <div class="project-title">P08</div>
+    <div class="project-description" id="desc-P08"></div>
+    <div class="photos">
+      <a href="images/photo8_0.jpg" target="_blank"><img src="images/photo8_0.jpg" alt="P08 image 0"></a>
+      <a href="images/photo8_1.jpg" target="_blank"><img src="images/photo8_1.jpg" alt="P08 image 1"></a>
+      <a href="images/photo8_2.jpg" target="_blank"><img src="images/photo8_2.jpg" alt="P08 image 2"></a>
+      <a href="images/photo8_3.jpg" target="_blank"><img src="images/photo8_3.jpg" alt="P08 image 3"></a>
+      <a href="images/photo8_4.jpg" target="_blank"><img src="images/photo8_4.jpg" alt="P08 image 4"></a>
+      <a href="images/photo8_5.jpg" target="_blank"><img src="images/photo8_5.jpg" alt="P08 image 5"></a>
+      <a href="images/photo8_6.jpg" target="_blank"><img src="images/photo8_6.jpg" alt="P08 image 6"></a>
+      <a href="images/photo8_7.jpg" target="_blank"><img src="images/photo8_7.jpg" alt="P08 image 7"></a>
+      <a href="images/photo8_8.jpg" target="_blank"><img src="images/photo8_8.jpg" alt="P08 image 8"></a>
+      <a href="images/photo8_9.jpg" target="_blank"><img src="images/photo8_9.jpg" alt="P08 image 9"></a>
+      <a href="images/photo8_10.jpg" target="_blank"><img src="images/photo8_10.jpg" alt="P08 image 10"></a>
+      <a href="images/photo8_11.jpg" target="_blank"><img src="images/photo8_11.jpg" alt="P08 image 11"></a>
+      <a href="images/photo8_12.jpg" target="_blank"><img src="images/photo8_12.jpg" alt="P08 image 12"></a>
+      <a href="images/photo8_13.jpg" target="_blank"><img src="images/photo8_13.jpg" alt="P08 image 13"></a>
+      <a href="images/photo8_14.jpg" target="_blank"><img src="images/photo8_14.jpg" alt="P08 image 14"></a>
+      <a href="images/photo8_15.jpg" target="_blank"><img src="images/photo8_15.jpg" alt="P08 image 15"></a>
+      <a href="images/photo8_16.jpg" target="_blank"><img src="images/photo8_16.jpg" alt="P08 image 16"></a>
+      <a href="images/photo8_17.jpg" target="_blank"><img src="images/photo8_17.jpg" alt="P08 image 17"></a>
+      <a href="images/photo8_18.jpg" target="_blank"><img src="images/photo8_18.jpg" alt="P08 image 18"></a>
+      <a href="images/photo8_19.jpg" target="_blank"><img src="images/photo8_19.jpg" alt="P08 image 19"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P07">
+    <div class="project-title">P07</div>
+    <div class="project-description" id="desc-P07"></div>
+    <div class="photos">
+      <a href="images/photo7_0.jpg" target="_blank"><img src="images/photo7_0.jpg" alt="P07 image 0"></a>
+      <a href="images/photo7_1.jpg" target="_blank"><img src="images/photo7_1.jpg" alt="P07 image 1"></a>
+      <a href="images/photo7_2.jpg" target="_blank"><img src="images/photo7_2.jpg" alt="P07 image 2"></a>
+      <a href="images/photo7_3.jpg" target="_blank"><img src="images/photo7_3.jpg" alt="P07 image 3"></a>
+      <a href="images/photo7_4.jpg" target="_blank"><img src="images/photo7_4.jpg" alt="P07 image 4"></a>
+      <a href="images/photo7_5.jpg" target="_blank"><img src="images/photo7_5.jpg" alt="P07 image 5"></a>
+      <a href="images/photo7_6.jpg" target="_blank"><img src="images/photo7_6.jpg" alt="P07 image 6"></a>
+      <a href="images/photo7_7.jpg" target="_blank"><img src="images/photo7_7.jpg" alt="P07 image 7"></a>
+      <a href="images/photo7_8.jpg" target="_blank"><img src="images/photo7_8.jpg" alt="P07 image 8"></a>
+      <a href="images/photo7_9.jpg" target="_blank"><img src="images/photo7_9.jpg" alt="P07 image 9"></a>
+      <a href="images/photo7_10.jpg" target="_blank"><img src="images/photo7_10.jpg" alt="P07 image 10"></a>
+      <a href="images/photo7_11.jpg" target="_blank"><img src="images/photo7_11.jpg" alt="P07 image 11"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P06">
+    <div class="project-title">P06</div>
+    <div class="project-description" id="desc-P06"></div>
+    <div class="photos">
+      <a href="images/photo6_0.jpg" target="_blank"><img src="images/photo6_0.jpg" alt="P06 image 0"></a>
+      <a href="images/photo6_1.jpg" target="_blank"><img src="images/photo6_1.jpg" alt="P06 image 1"></a>
+      <a href="images/photo6_2.jpg" target="_blank"><img src="images/photo6_2.jpg" alt="P06 image 2"></a>
+      <a href="images/photo6_3.jpg" target="_blank"><img src="images/photo6_3.jpg" alt="P06 image 3"></a>
+      <a href="images/photo6_4.jpg" target="_blank"><img src="images/photo6_4.jpg" alt="P06 image 4"></a>
+      <a href="images/photo6_5.jpg" target="_blank"><img src="images/photo6_5.jpg" alt="P06 image 5"></a>
+      <a href="images/photo6_6.jpg" target="_blank"><img src="images/photo6_6.jpg" alt="P06 image 6"></a>
+      <a href="images/photo6_7.jpg" target="_blank"><img src="images/photo6_7.jpg" alt="P06 image 7"></a>
+      <a href="images/photo6_8.jpg" target="_blank"><img src="images/photo6_8.jpg" alt="P06 image 8"></a>
+      <a href="images/photo6_9.jpg" target="_blank"><img src="images/photo6_9.jpg" alt="P06 image 9"></a>
+      <a href="images/photo6_10.jpg" target="_blank"><img src="images/photo6_10.jpg" alt="P06 image 10"></a>
+      <a href="images/photo6_11.jpg" target="_blank"><img src="images/photo6_11.jpg" alt="P06 image 11"></a>
+      <a href="images/photo6_12.jpg" target="_blank"><img src="images/photo6_12.jpg" alt="P06 image 12"></a>
+      <a href="images/photo6_13.jpg" target="_blank"><img src="images/photo6_13.jpg" alt="P06 image 13"></a>
+      <a href="images/photo6_14.jpg" target="_blank"><img src="images/photo6_14.jpg" alt="P06 image 14"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P05">
+    <div class="project-title">P05</div>
+    <div class="project-description" id="desc-P05"></div>
+    <div class="photos">
+      <a href="images/photo5_0.jpg" target="_blank"><img src="images/photo5_0.jpg" alt="P05 image 0"></a>
+      <a href="images/photo5_1.jpg" target="_blank"><img src="images/photo5_1.jpg" alt="P05 image 1"></a>
+      <a href="images/photo5_2.jpg" target="_blank"><img src="images/photo5_2.jpg" alt="P05 image 2"></a>
+      <a href="images/photo5_3.jpg" target="_blank"><img src="images/photo5_3.jpg" alt="P05 image 3"></a>
+      <a href="images/photo5_4.jpg" target="_blank"><img src="images/photo5_4.jpg" alt="P05 image 4"></a>
+      <a href="images/photo5_5.jpg" target="_blank"><img src="images/photo5_5.jpg" alt="P05 image 5"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P04">
+    <div class="project-title">P04</div>
+    <div class="project-description" id="desc-P04"></div>
+    <div class="photos">
+      <a href="images/photo4_0.jpg" target="_blank"><img src="images/photo4_0.jpg" alt="P04 image 0"></a>
+      <a href="images/photo4_1.jpg" target="_blank"><img src="images/photo4_1.jpg" alt="P04 image 1"></a>
+      <a href="images/photo4_2.jpg" target="_blank"><img src="images/photo4_2.jpg" alt="P04 image 2"></a>
+      <a href="images/photo4_3.jpg" target="_blank"><img src="images/photo4_3.jpg" alt="P04 image 3"></a>
+      <a href="images/photo4_4.jpg" target="_blank"><img src="images/photo4_4.jpg" alt="P04 image 4"></a>
+      <a href="images/photo4_5.jpg" target="_blank"><img src="images/photo4_5.jpg" alt="P04 image 5"></a>
+      <a href="images/photo4_6.jpg" target="_blank"><img src="images/photo4_6.jpg" alt="P04 image 6"></a>
+      <a href="images/photo4_7.jpg" target="_blank"><img src="images/photo4_7.jpg" alt="P04 image 7"></a>
+      <a href="images/photo4_8.jpg" target="_blank"><img src="images/photo4_8.jpg" alt="P04 image 8"></a>
+      <a href="images/photo4_9.jpg" target="_blank"><img src="images/photo4_9.jpg" alt="P04 image 9"></a>
+      <a href="images/photo4_10.jpg" target="_blank"><img src="images/photo4_10.jpg" alt="P04 image 10"></a>
+      <a href="images/photo4_11.jpg" target="_blank"><img src="images/photo4_11.jpg" alt="P04 image 11"></a>
+      <a href="images/photo4_12.jpg" target="_blank"><img src="images/photo4_12.jpg" alt="P04 image 12"></a>
+      <a href="images/photo4_13.jpg" target="_blank"><img src="images/photo4_13.jpg" alt="P04 image 13"></a>
+      <a href="images/photo4_14.jpg" target="_blank"><img src="images/photo4_14.jpg" alt="P04 image 14"></a>
+      <a href="images/photo4_15.jpg" target="_blank"><img src="images/photo4_15.jpg" alt="P04 image 15"></a>
+      <a href="images/photo4_16.jpg" target="_blank"><img src="images/photo4_16.jpg" alt="P04 image 16"></a>
+      <a href="images/photo4_17.jpg" target="_blank"><img src="images/photo4_17.jpg" alt="P04 image 17"></a>
+      <a href="images/photo4_18.jpg" target="_blank"><img src="images/photo4_18.jpg" alt="P04 image 18"></a>
+      <a href="images/photo4_19.jpg" target="_blank"><img src="images/photo4_19.jpg" alt="P04 image 19"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P03">
+    <div class="project-title">P03</div>
+    <div class="project-description" id="desc-P03"></div>
+    <div class="photos">
+      <a href="images/photo3_0.jpg" target="_blank"><img src="images/photo3_0.jpg" alt="P03 image 0"></a>
+      <a href="images/photo3_1.jpg" target="_blank"><img src="images/photo3_1.jpg" alt="P03 image 1"></a>
+      <a href="images/photo3_2.jpg" target="_blank"><img src="images/photo3_2.jpg" alt="P03 image 2"></a>
+      <a href="images/photo3_3.jpg" target="_blank"><img src="images/photo3_3.jpg" alt="P03 image 3"></a>
+      <a href="images/photo3_4.jpg" target="_blank"><img src="images/photo3_4.jpg" alt="P03 image 4"></a>
+      <a href="images/photo3_5.jpg" target="_blank"><img src="images/photo3_5.jpg" alt="P03 image 5"></a>
+      <a href="images/photo3_6.jpg" target="_blank"><img src="images/photo3_6.jpg" alt="P03 image 6"></a>
+      <a href="images/photo3_7.jpg" target="_blank"><img src="images/photo3_7.jpg" alt="P03 image 7"></a>
+      <a href="images/photo3_8.jpg" target="_blank"><img src="images/photo3_8.jpg" alt="P03 image 8"></a>
+      <a href="images/photo3_9.jpg" target="_blank"><img src="images/photo3_9.jpg" alt="P03 image 9"></a>
+      <a href="images/photo3_10.jpg" target="_blank"><img src="images/photo3_10.jpg" alt="P03 image 10"></a>
+      <a href="images/photo3_11.jpg" target="_blank"><img src="images/photo3_11.jpg" alt="P03 image 11"></a>
+      <a href="images/photo3_12.jpg" target="_blank"><img src="images/photo3_12.jpg" alt="P03 image 12"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P02">
+    <div class="project-title">P02</div>
+    <div class="project-description" id="desc-P02"></div>
+    <div class="photos">
+      <a href="images/photo2_0.jpg" target="_blank"><img src="images/photo2_0.jpg" alt="P02 image 0"></a>
+      <a href="images/photo2_1.jpg" target="_blank"><img src="images/photo2_1.jpg" alt="P02 image 1"></a>
+      <a href="images/photo2_2.jpg" target="_blank"><img src="images/photo2_2.jpg" alt="P02 image 2"></a>
+      <a href="images/photo2_3.jpg" target="_blank"><img src="images/photo2_3.jpg" alt="P02 image 3"></a>
+      <a href="images/photo2_4.jpg" target="_blank"><img src="images/photo2_4.jpg" alt="P02 image 4"></a>
+      <a href="images/photo2_5.jpg" target="_blank"><img src="images/photo2_5.jpg" alt="P02 image 5"></a>
+      <a href="images/photo2_6.jpg" target="_blank"><img src="images/photo2_6.jpg" alt="P02 image 6"></a>
+      <a href="images/photo2_7.jpg" target="_blank"><img src="images/photo2_7.jpg" alt="P02 image 7"></a>
+      <a href="images/photo2_8.jpg" target="_blank"><img src="images/photo2_8.jpg" alt="P02 image 8"></a>
+      <a href="images/photo2_9.jpg" target="_blank"><img src="images/photo2_9.jpg" alt="P02 image 9"></a>
+    </div>
+  </div>
+
+  <div class="project" id="P01">
+    <div class="project-title">P01</div>
+    <div class="project-description" id="desc-P01"></div>
+    <div class="photos">
+      <a href="images/photo1_0.jpg" target="_blank"><img src="images/photo1_0.jpg" alt="P01 image 0"></a>
+      <a href="images/photo1_1.jpg" target="_blank"><img src="images/photo1_1.jpg" alt="P01 image 1"></a>
+      <a href="images/photo1_2.jpg" target="_blank"><img src="images/photo1_2.jpg" alt="P01 image 2"></a>
+      <a href="images/photo1_3.jpg" target="_blank"><img src="images/photo1_3.jpg" alt="P01 image 3"></a>
+      <a href="images/photo1_4.jpg" target="_blank"><img src="images/photo1_4.jpg" alt="P01 image 4"></a>
+    </div>
+  </div>
+
+
+    <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
+  </div>
+
+  
+  
+  
+  
   <script>
     const videos = [
       "video/video1.m4v",
@@ -190,7 +477,6 @@
     videoEls[0].style.opacity = 1;
     videoEls[0].play();
 
-    // Charger les descriptions avec gestion d'erreurs
     fetch("descriptions.json")
       .then(res => {
         if (!res.ok) throw new Error("Fichier descriptions.json introuvable");
