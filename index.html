@@ -154,3 +154,72 @@
 
   <div class="main">
     <h1>Bhaskara Architecture</h1>
+  <script>
+    const videos = [
+      "video/video1.m4v",
+      "video/video2.m4v",
+      "video/video3.m4v"
+    ];
+
+    let current = 0;
+    const videoEls = [document.getElementById("video1"), document.getElementById("video2")];
+    const fadeDuration = 800;
+
+    function switchVideo() {
+      const currentEl = videoEls[current % 2];
+      const nextEl = videoEls[(current + 1) % 2];
+
+      nextEl.loop = false;
+      nextEl.src = videos[current];
+      nextEl.load();
+
+      nextEl.oncanplay = () => {
+        nextEl.style.transition = `opacity ${fadeDuration}ms ease-in-out`;
+        currentEl.style.transition = `opacity ${fadeDuration}ms ease-in-out`;
+        nextEl.style.opacity = 1;
+        currentEl.style.opacity = 0;
+        nextEl.play();
+        current = (current + 1) % videos.length;
+      };
+    }
+
+    videoEls[0].addEventListener("ended", switchVideo);
+    videoEls[1].addEventListener("ended", switchVideo);
+    videoEls[0].loop = false;
+    videoEls[0].src = videos[0];
+    videoEls[0].style.opacity = 1;
+    videoEls[0].play();
+
+    // Charger les descriptions avec gestion d'erreurs
+    fetch("descriptions.json")
+      .then(res => {
+        if (!res.ok) throw new Error("Fichier descriptions.json introuvable");
+        return res.json();
+      })
+      .then(data => {
+        Object.entries(data).reverse().forEach(([key, text]) => {
+          const el = document.getElementById("desc-" + key);
+          if (el) el.innerHTML = text.replace(/\n/g, "<br>");
+          const preview = text.split(" ").slice(0, 2).join(" ");
+          const link = document.createElement("a");
+          link.href = "#" + key;
+          link.textContent = key + " — " + preview;
+          document.getElementById("sidebar").appendChild(link);
+        });
+      })
+      .catch(err => {
+        const errorBox = document.createElement("div");
+        errorBox.style.background = "rgba(255,0,0,0.1)";
+        errorBox.style.color = "#b00";
+        errorBox.style.padding = "10px";
+        errorBox.style.margin = "20px auto";
+        errorBox.style.maxWidth = "600px";
+        errorBox.style.fontSize = "14px";
+        errorBox.style.border = "1px solid #b00";
+        errorBox.style.textAlign = "center";
+        errorBox.innerText = "⚠️ Erreur : " + err.message;
+        document.querySelector(".main").appendChild(errorBox);
+      });
+  </script>
+</body>
+</html>
