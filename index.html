@@ -6,69 +6,81 @@
     <title>Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-body {
-    font-family: 'Lato', sans-serif;
-    background-color: white;
-    color: #002fa7;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row-reverse;
-}
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: white;
+            color: #002fa7;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: row-reverse;
+        }
 
-.container {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 150px;
-    height: 100vh;
-    padding: 20px;
-    background-color: white;
-    z-index: 1000;
-    overflow-y: auto;
-}
+        .container {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 150px;
+            height: 100vh;
+            padding: 20px;
+            background-color: white;
+            z-index: 1000;
+            overflow-y: auto;
+        }
 
-.titles {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        .titles {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-.titles li {
-    cursor: pointer;
-    margin: 5px 0;
-    font-weight: bold;
-    font-size: 10px;
-    text-align: right;
-}
+        .titles li {
+            cursor: pointer;
+            margin: 5px 0;
+            font-weight: bold;
+            font-size: 10px;
+            text-align: right;
+        }
 
-.main-content {
-    flex: 1;
-    padding: 20px;
-    margin-right: 170px;
-    box-sizing: border-box;
-}
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            margin-right: 170px;
+            box-sizing: border-box;
+        }
 
-h1 {
-    text-transform: uppercase;
-    font-size: 24px;
-    text-align: right;
-    margin-bottom: 30px;
-}
+        h1 {
+            text-transform: uppercase;
+            font-size: 24px;
+            text-align: right;
+            margin-bottom: 30px;
+        }
 
-.transparent-image {
-    display: block;
-    margin: 50px auto 0 auto;
-    width: 50%;
-    max-width: 300px;
-    opacity: 0.9;
-}
-</style>
+        .photos {
+            display: none;
+            margin-top: 5px;
+            flex-wrap: wrap;
+            display: flex;
+        }
+
+        .photos img {
+            width: 500px;
+            margin: 5px;
+            cursor: pointer;
+            display: block;
+        }
+
+        .transparent-image {
+            display: block;
+            margin: 50px auto 0 auto;
+            width: 50%;
+            max-width: 300px;
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-    <h1>Bhaskara Architecture</h1>
     <div class="container">
         <ul class="titles">
             <li onclick="togglePhotos(13)">P13<div id="photos-13" class="photos"></div></li>
@@ -89,29 +101,25 @@ h1 {
 
     <div class="main-content">
         <h1>Bhaskara Architecture</h1>
-
-    <!-- Image PNG transparente (réduite de moitié) -->
-    <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
+        <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
+    </div>
 
     <script>
         let images = {
             1: 5, 2: 10, 3: 13, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 20, 12: 14, 13: 18
-        }; // Assure que P11 contient bien 20 images
+        };
 
-        // Fonction pour afficher / masquer les photos sous le projet cliqué
         function togglePhotos(num) {
             let container = document.getElementById(`photos-${num}`);
 
             if (container.style.display === "none" || container.innerHTML === "") {
-                console.log(`Affichage des images du projet P${num}`);
                 container.style.display = "flex";
 
                 if (container.children.length === 0) {
                     let imgElement = document.createElement("img");
                     imgElement.src = `images/photo${num}_0.jpg`;
                     imgElement.setAttribute("data-index", 0);
-                    
-                    // Ajoute l'événement pour charger l'image suivante
+
                     imgElement.addEventListener("click", function(event) { 
                         event.stopPropagation(); 
                         addNextPhoto(num, container);
@@ -120,21 +128,17 @@ h1 {
                     container.appendChild(imgElement);
                 }
             } else {
-                console.log(`Masquage des images du projet P${num}`);
                 container.style.display = "none"; 
             }
         }
 
-        // Fonction pour ajouter une nouvelle image à côté sans supprimer l'ancienne
         function addNextPhoto(num, container) {
             let currentIndex = container.children.length;
 
             if (currentIndex < images[num]) {
-                console.log(`Ajout de l'image: images/photo${num}_${currentIndex}.jpg`);
                 let newImg = document.createElement("img");
                 newImg.src = `images/photo${num}_${currentIndex}.jpg`;
 
-                // Ajoute l'événement pour charger la suivante ou ouvrir en grand si c'est la dernière
                 newImg.addEventListener("click", function(event) { 
                     event.stopPropagation();
                     if (container.children.length === images[num]) {
@@ -146,9 +150,6 @@ h1 {
 
                 container.appendChild(newImg);
             } else {
-                console.log(`Toutes les images du projet P${num} sont affichées.`);
-
-                // Ajoute l'événement sur la première image pour ouvrir en grand une fois toutes chargées
                 if (container.children.length === images[num]) {
                     let firstImg = container.children[0];
                     firstImg.addEventListener("click", function() {
@@ -158,11 +159,9 @@ h1 {
             }
         }
 
-        // Fonction pour ouvrir une image dans un nouvel onglet (seulement après affichage complet)
         function openImageInNewTab(src) {
             window.open(src, '_blank');
         }
     </script>
-    </div>
 </body>
 </html>
