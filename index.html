@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio avec vidéos enchaînées et descriptions</title>
+  <title>Portfolio avec sommaire latéral</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     body, html {
@@ -12,6 +12,36 @@
       font-family: 'Lato', sans-serif;
       color: #002fa7;
       background: transparent;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 160px;
+      height: 100vh;
+      background-color: rgba(255,255,255,0.85);
+      padding: 20px 10px;
+      font-size: 10px;
+      overflow-y: auto;
+      z-index: 10;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #002fa7;
+      text-decoration: none;
+      margin-bottom: 6px;
+      transition: opacity 0.2s ease;
+    }
+
+    .sidebar a:hover {
+      opacity: 0.6;
+    }
+
+    .main {
+      margin-left: 170px;
+      padding: 30px 20px;
     }
 
     .video-container {
@@ -93,14 +123,19 @@
   </style>
 </head>
 <body>
+  <div class="sidebar" id="sidebar">
+    <!-- Sommaire dynamique -->
+  </div>
+
   <div class="video-container">
     <video id="video1" class="background-video" autoplay muted playsinline></video>
     <video id="video2" class="background-video" muted playsinline style="opacity: 0;"></video>
   </div>
   <div class="overlay"></div>
 
-  <h1>Bhaskara Architecture</h1>
-  <div class="project">
+  <div class="main">
+    <h1>Bhaskara Architecture</h1>
+  <div class="project" id="P13">
     <div class="project-title">P13</div>
     <div class="project-description" id="desc-P13"></div>
     <div class="photos">
@@ -125,7 +160,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P12">
     <div class="project-title">P12</div>
     <div class="project-description" id="desc-P12"></div>
     <div class="photos">
@@ -146,7 +181,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P11">
     <div class="project-title">P11</div>
     <div class="project-description" id="desc-P11"></div>
     <div class="photos">
@@ -173,7 +208,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P10">
     <div class="project-title">P10</div>
     <div class="project-description" id="desc-P10"></div>
     <div class="photos">
@@ -200,7 +235,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P09">
     <div class="project-title">P09</div>
     <div class="project-description" id="desc-P09"></div>
     <div class="photos">
@@ -214,7 +249,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P08">
     <div class="project-title">P08</div>
     <div class="project-description" id="desc-P08"></div>
     <div class="photos">
@@ -241,7 +276,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P07">
     <div class="project-title">P07</div>
     <div class="project-description" id="desc-P07"></div>
     <div class="photos">
@@ -260,7 +295,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P06">
     <div class="project-title">P06</div>
     <div class="project-description" id="desc-P06"></div>
     <div class="photos">
@@ -282,7 +317,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P05">
     <div class="project-title">P05</div>
     <div class="project-description" id="desc-P05"></div>
     <div class="photos">
@@ -295,7 +330,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P04">
     <div class="project-title">P04</div>
     <div class="project-description" id="desc-P04"></div>
     <div class="photos">
@@ -322,7 +357,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P03">
     <div class="project-title">P03</div>
     <div class="project-description" id="desc-P03"></div>
     <div class="photos">
@@ -342,7 +377,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P02">
     <div class="project-title">P02</div>
     <div class="project-description" id="desc-P02"></div>
     <div class="photos">
@@ -359,7 +394,7 @@
     </div>
   </div>
 
-  <div class="project">
+  <div class="project" id="P01">
     <div class="project-title">P01</div>
     <div class="project-description" id="desc-P01"></div>
     <div class="photos">
@@ -372,8 +407,10 @@
   </div>
 
 
-  <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
+    <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
+  </div>
 
+  
   <script>
     const videos = [
       "video/video1.m4v",
@@ -384,11 +421,20 @@
     let current = 0;
     const videoEls = [document.getElementById("video1"), document.getElementById("video2")];
 
+    // Réglages du fondu plus doux et superposé
+    const fadeDuration = 600;
+
     function switchVideo() {
       const currentEl = videoEls[current % 2];
       const nextEl = videoEls[(current + 1) % 2];
+
       nextEl.src = videos[current];
-      nextEl.style.opacity = 0;
+      nextEl.style.transition = `opacity ${fadeDuration}ms ease-in-out`;
+      currentEl.style.transition = `opacity ${fadeDuration}ms ease-in-out`;
+
+      nextEl.style.opacity = 1;
+      currentEl.style.opacity = 1;
+
       nextEl.load();
       nextEl.play();
 
@@ -396,21 +442,30 @@
         nextEl.style.opacity = 1;
         currentEl.style.opacity = 0;
         current = (current + 1) % videos.length;
-      }, 1000);
+      }, 100);
     }
 
     videoEls[0].addEventListener("ended", switchVideo);
     videoEls[1].addEventListener("ended", switchVideo);
 
+    // Initialisation
     videoEls[0].src = videos[0];
+    videoEls[0].style.opacity = 1;
     videoEls[0].play();
 
+    // Descriptions + sidebar
     fetch("descriptions.json")
       .then(res => res.json())
       .then(data => {
         Object.entries(data).forEach(([key, text]) => {
           const el = document.getElementById("desc-" + key);
           if (el) el.textContent = text;
+
+          const preview = text.split(" ").slice(0, 2).join(" ");
+          const link = document.createElement("a");
+          link.href = "#" + key;
+          link.textContent = key + " — " + preview;
+          document.getElementById("sidebar").appendChild(link);
         });
       });
   </script>
