@@ -24,7 +24,6 @@ body {
     width: 150px;
     height: 100vh;
     padding: 20px;
-    text-align: right;
     background-color: white;
     z-index: 1000;
     overflow-y: auto;
@@ -47,7 +46,15 @@ body {
 .main-content {
     flex: 1;
     padding: 20px;
-    margin-right: 150px;
+    margin-right: 170px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 24px;
+    text-align: right;
+    margin-bottom: 30px;
 }
 
 .transparent-image {
@@ -57,58 +64,7 @@ body {
     max-width: 300px;
     opacity: 0.9;
 }
-
-        body { 
-            font-family: 'Lato', sans-serif; 
-            text-align: right; 
-            padding: 20px; 
-            background-color: white; /* Fond blanc */
-            color: #002fa7; /* Bleu Klein pour le texte */
-            position: relative;
-            min-height: 100vh;
-        }
-        h1 { 
-            text-transform: uppercase; 
-            text-align: right; /* Justification à gauche */
-            font-size: 24px; 
-            margin-left: 20px; /* Ajout d'un léger décalage */
-        }
-        .container { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: flex-start; 
-        }
-        .titles { 
-            list-style: none; 
-            padding: 0; 
-        }
-        .titles li { 
-            cursor: pointer; 
-            margin: 5px 0; /* Réduction de l'espacement initial entre les titres */
-            font-weight: bold; 
-            position: relative;
-            font-size: 10px; /* Réduction de la taille des titres */
-        }
-        .photos { 
-            display: none; 
-            margin-top: 5px; /* Réduction de l'espace après ouverture */
-            flex-wrap: wrap;
-            display: flex;
-        }
-        .photos img { 
-            width: 500px; /* Taille des images */
-            margin: 5px; 
-            cursor: pointer; 
-            display: block; 
-        }
-        .transparent-image {
-            display: block;
-            margin: 50px auto 0 auto;
-            width: 50%; /* Taille réduite de l'image PNG */
-            max-width: 300px;
-            opacity: 0.9; /* Ajuste la transparence */
-        }
-    </style>
+</style>
 </head>
 <body>
     <div class="container">
@@ -132,6 +88,7 @@ body {
     </div>
 
     <div class="main-content">
+        <h1>Bhaskara Architecture</h1>
 
     <!-- Image PNG transparente (réduite de moitié) -->
     <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
