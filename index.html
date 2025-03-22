@@ -92,7 +92,9 @@
     }
 
     .project-description {
-      font-size: 35px;
+      font-variant: small-caps;
+      font-weight: bold;
+      font-size: 33px;
       text-align: left;
       max-width: 800px;
       margin: 20px auto;
@@ -123,6 +125,8 @@
   
 @media screen and (max-width: 768px) {
   .project-description {
+      font-variant: small-caps;
+      font-weight: bold;
     font-size: 18px;
     text-align: center;
     padding: 0 10px;
@@ -429,6 +433,7 @@
 
   
   
+  
   <script>
     const videos = [
       "video/video1.m4v",
@@ -439,8 +444,7 @@
     let current = 0;
     const videoEls = [document.getElementById("video1"), document.getElementById("video2")];
 
-    // Lecture manuelle + boucle fluide
-    const fadeDuration = 600;
+    const fadeDuration = 800;
 
     function switchVideo() {
       const currentEl = videoEls[current % 2];
@@ -448,29 +452,28 @@
 
       nextEl.loop = false;
       nextEl.src = videos[current];
-      nextEl.style.transition = `opacity ${fadeDuration}ms ease-in-out`;
-      currentEl.style.transition = `opacity ${fadeDuration}ms ease-in-out`;
-
       nextEl.load();
-      nextEl.style.opacity = 1;
-      nextEl.play();
 
-      setTimeout(() => {
+      nextEl.oncanplay = () => {
+        nextEl.style.transition = `opacity ${fadeDuration}ms ease-in-out`;
+        currentEl.style.transition = `opacity ${fadeDuration}ms ease-in-out`;
+
+        nextEl.style.opacity = 1;
         currentEl.style.opacity = 0;
+
+        nextEl.play();
         current = (current + 1) % videos.length;
-      }, 100);
+      };
     }
 
     videoEls[0].addEventListener("ended", switchVideo);
     videoEls[1].addEventListener("ended", switchVideo);
 
-    // Initialisation
     videoEls[0].loop = false;
     videoEls[0].src = videos[0];
     videoEls[0].style.opacity = 1;
     videoEls[0].play();
 
-    // Charger les descriptions JSON et formater
     fetch("descriptions.json")
       .then(res => res.json())
       .then(data => {
