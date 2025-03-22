@@ -12,63 +12,41 @@
             color: #002fa7;
             margin: 0;
             padding: 0;
-            min-height: 100vh;
             display: flex;
-            flex-direction: row-reverse;
-        }
-
-        .container {
-            position: fixed;
-            right: 0;
-            top: 0;
-            width: 150px;
-            height: 100vh;
-            padding: 20px;
-            background-color: white;
-            z-index: 1000;
-            overflow-y: auto;
-        }
-
-        .titles {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .titles li {
-            cursor: pointer;
-            margin: 5px 0;
-            font-weight: bold;
-            font-size: 10px;
-            text-align: right;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 20px;
-            margin-right: 170px;
-            box-sizing: border-box;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
             text-transform: uppercase;
             font-size: 24px;
-            text-align: right;
-            margin-bottom: 30px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .project {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-title {
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 10px;
         }
 
         .photos {
-            display: none;
-            margin-top: 5px;
-            flex-wrap: wrap;
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
         .photos img {
-            width: 500px;
-            margin: 5px;
+            width: 80%;
+            max-width: 600px;
+            height: auto;
             cursor: pointer;
-            display: block;
         }
 
         .transparent-image {
@@ -81,87 +59,268 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <ul class="titles">
-            <li onclick="togglePhotos(13)">P13<div id="photos-13" class="photos"></div></li>
-            <li onclick="togglePhotos(12)">P12<div id="photos-12" class="photos"></div></li>
-            <li onclick="togglePhotos(11)">P11<div id="photos-11" class="photos"></div></li>
-            <li onclick="togglePhotos(10)">P10<div id="photos-10" class="photos"></div></li>
-            <li onclick="togglePhotos(9)">P09<div id="photos-9" class="photos"></div></li>
-            <li onclick="togglePhotos(8)">P08<div id="photos-8" class="photos"></div></li>
-            <li onclick="togglePhotos(7)">P07<div id="photos-7" class="photos"></div></li>
-            <li onclick="togglePhotos(6)">P06<div id="photos-6" class="photos"></div></li>
-            <li onclick="togglePhotos(5)">P05<div id="photos-5" class="photos"></div></li>
-            <li onclick="togglePhotos(4)">P04<div id="photos-4" class="photos"></div></li>
-            <li onclick="togglePhotos(3)">P03<div id="photos-3" class="photos"></div></li>
-            <li onclick="togglePhotos(2)">P02<div id="photos-2" class="photos"></div></li>
-            <li onclick="togglePhotos(1)">P01<div id="photos-1" class="photos"></div></li>
-        </ul>
+    <h1>Bhaskara Architecture</h1>
+
+    <!-- Projets affichés en colonne façon Instagram -->
+    <div class="project">
+        <div class="project-title">P13</div>
+        <div class="photos">
+            <img src="images/photo13_0.jpg" alt="P13 image 0">
+            <img src="images/photo13_1.jpg" alt="P13 image 1">
+            <img src="images/photo13_2.jpg" alt="P13 image 2">
+            <img src="images/photo13_3.jpg" alt="P13 image 3">
+            <img src="images/photo13_4.jpg" alt="P13 image 4">
+            <img src="images/photo13_5.jpg" alt="P13 image 5">
+            <img src="images/photo13_6.jpg" alt="P13 image 6">
+            <img src="images/photo13_7.jpg" alt="P13 image 7">
+            <img src="images/photo13_8.jpg" alt="P13 image 8">
+            <img src="images/photo13_9.jpg" alt="P13 image 9">
+            <img src="images/photo13_10.jpg" alt="P13 image 10">
+            <img src="images/photo13_11.jpg" alt="P13 image 11">
+            <img src="images/photo13_12.jpg" alt="P13 image 12">
+            <img src="images/photo13_13.jpg" alt="P13 image 13">
+            <img src="images/photo13_14.jpg" alt="P13 image 14">
+            <img src="images/photo13_15.jpg" alt="P13 image 15">
+            <img src="images/photo13_16.jpg" alt="P13 image 16">
+            <img src="images/photo13_17.jpg" alt="P13 image 17">
+        </div>
     </div>
 
-    <div class="main-content">
-        <h1>Bhaskara Architecture</h1>
-        <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
+    <div class="project">
+        <div class="project-title">P12</div>
+        <div class="photos">
+            <img src="images/photo12_0.jpg" alt="P12 image 0">
+            <img src="images/photo12_1.jpg" alt="P12 image 1">
+            <img src="images/photo12_2.jpg" alt="P12 image 2">
+            <img src="images/photo12_3.jpg" alt="P12 image 3">
+            <img src="images/photo12_4.jpg" alt="P12 image 4">
+            <img src="images/photo12_5.jpg" alt="P12 image 5">
+            <img src="images/photo12_6.jpg" alt="P12 image 6">
+            <img src="images/photo12_7.jpg" alt="P12 image 7">
+            <img src="images/photo12_8.jpg" alt="P12 image 8">
+            <img src="images/photo12_9.jpg" alt="P12 image 9">
+            <img src="images/photo12_10.jpg" alt="P12 image 10">
+            <img src="images/photo12_11.jpg" alt="P12 image 11">
+            <img src="images/photo12_12.jpg" alt="P12 image 12">
+            <img src="images/photo12_13.jpg" alt="P12 image 13">
+        </div>
     </div>
 
-    <script>
-        let images = {
-            1: 5, 2: 10, 3: 13, 4: 20, 5: 6, 6: 15, 7: 12, 8: 20, 9: 7, 10: 20, 11: 20, 12: 14, 13: 18
-        };
+    <div class="project">
+        <div class="project-title">P11</div>
+        <div class="photos">
+            <img src="images/photo11_0.jpg" alt="P11 image 0">
+            <img src="images/photo11_1.jpg" alt="P11 image 1">
+            <img src="images/photo11_2.jpg" alt="P11 image 2">
+            <img src="images/photo11_3.jpg" alt="P11 image 3">
+            <img src="images/photo11_4.jpg" alt="P11 image 4">
+            <img src="images/photo11_5.jpg" alt="P11 image 5">
+            <img src="images/photo11_6.jpg" alt="P11 image 6">
+            <img src="images/photo11_7.jpg" alt="P11 image 7">
+            <img src="images/photo11_8.jpg" alt="P11 image 8">
+            <img src="images/photo11_9.jpg" alt="P11 image 9">
+            <img src="images/photo11_10.jpg" alt="P11 image 10">
+            <img src="images/photo11_11.jpg" alt="P11 image 11">
+            <img src="images/photo11_12.jpg" alt="P11 image 12">
+            <img src="images/photo11_13.jpg" alt="P11 image 13">
+            <img src="images/photo11_14.jpg" alt="P11 image 14">
+            <img src="images/photo11_15.jpg" alt="P11 image 15">
+            <img src="images/photo11_16.jpg" alt="P11 image 16">
+            <img src="images/photo11_17.jpg" alt="P11 image 17">
+            <img src="images/photo11_18.jpg" alt="P11 image 18">
+            <img src="images/photo11_19.jpg" alt="P11 image 19">
+        </div>
+    </div>
 
-        function togglePhotos(num) {
-            let container = document.getElementById(`photos-${num}`);
+    <div class="project">
+        <div class="project-title">P10</div>
+        <div class="photos">
+            <img src="images/photo10_0.jpg" alt="P10 image 0">
+            <img src="images/photo10_1.jpg" alt="P10 image 1">
+            <img src="images/photo10_2.jpg" alt="P10 image 2">
+            <img src="images/photo10_3.jpg" alt="P10 image 3">
+            <img src="images/photo10_4.jpg" alt="P10 image 4">
+            <img src="images/photo10_5.jpg" alt="P10 image 5">
+            <img src="images/photo10_6.jpg" alt="P10 image 6">
+            <img src="images/photo10_7.jpg" alt="P10 image 7">
+            <img src="images/photo10_8.jpg" alt="P10 image 8">
+            <img src="images/photo10_9.jpg" alt="P10 image 9">
+            <img src="images/photo10_10.jpg" alt="P10 image 10">
+            <img src="images/photo10_11.jpg" alt="P10 image 11">
+            <img src="images/photo10_12.jpg" alt="P10 image 12">
+            <img src="images/photo10_13.jpg" alt="P10 image 13">
+            <img src="images/photo10_14.jpg" alt="P10 image 14">
+            <img src="images/photo10_15.jpg" alt="P10 image 15">
+            <img src="images/photo10_16.jpg" alt="P10 image 16">
+            <img src="images/photo10_17.jpg" alt="P10 image 17">
+            <img src="images/photo10_18.jpg" alt="P10 image 18">
+            <img src="images/photo10_19.jpg" alt="P10 image 19">
+        </div>
+    </div>
 
-            if (container.style.display === "none" || container.innerHTML === "") {
-                container.style.display = "flex";
+    <div class="project">
+        <div class="project-title">P09</div>
+        <div class="photos">
+            <img src="images/photo9_0.jpg" alt="P9 image 0">
+            <img src="images/photo9_1.jpg" alt="P9 image 1">
+            <img src="images/photo9_2.jpg" alt="P9 image 2">
+            <img src="images/photo9_3.jpg" alt="P9 image 3">
+            <img src="images/photo9_4.jpg" alt="P9 image 4">
+            <img src="images/photo9_5.jpg" alt="P9 image 5">
+            <img src="images/photo9_6.jpg" alt="P9 image 6">
+        </div>
+    </div>
 
-                if (container.children.length === 0) {
-                    let imgElement = document.createElement("img");
-                    imgElement.src = `images/photo${num}_0.jpg`;
-                    imgElement.setAttribute("data-index", 0);
+    <div class="project">
+        <div class="project-title">P08</div>
+        <div class="photos">
+            <img src="images/photo8_0.jpg" alt="P8 image 0">
+            <img src="images/photo8_1.jpg" alt="P8 image 1">
+            <img src="images/photo8_2.jpg" alt="P8 image 2">
+            <img src="images/photo8_3.jpg" alt="P8 image 3">
+            <img src="images/photo8_4.jpg" alt="P8 image 4">
+            <img src="images/photo8_5.jpg" alt="P8 image 5">
+            <img src="images/photo8_6.jpg" alt="P8 image 6">
+            <img src="images/photo8_7.jpg" alt="P8 image 7">
+            <img src="images/photo8_8.jpg" alt="P8 image 8">
+            <img src="images/photo8_9.jpg" alt="P8 image 9">
+            <img src="images/photo8_10.jpg" alt="P8 image 10">
+            <img src="images/photo8_11.jpg" alt="P8 image 11">
+            <img src="images/photo8_12.jpg" alt="P8 image 12">
+            <img src="images/photo8_13.jpg" alt="P8 image 13">
+            <img src="images/photo8_14.jpg" alt="P8 image 14">
+            <img src="images/photo8_15.jpg" alt="P8 image 15">
+            <img src="images/photo8_16.jpg" alt="P8 image 16">
+            <img src="images/photo8_17.jpg" alt="P8 image 17">
+            <img src="images/photo8_18.jpg" alt="P8 image 18">
+            <img src="images/photo8_19.jpg" alt="P8 image 19">
+        </div>
+    </div>
 
-                    imgElement.addEventListener("click", function(event) { 
-                        event.stopPropagation(); 
-                        addNextPhoto(num, container);
-                    });
+    <div class="project">
+        <div class="project-title">P07</div>
+        <div class="photos">
+            <img src="images/photo7_0.jpg" alt="P7 image 0">
+            <img src="images/photo7_1.jpg" alt="P7 image 1">
+            <img src="images/photo7_2.jpg" alt="P7 image 2">
+            <img src="images/photo7_3.jpg" alt="P7 image 3">
+            <img src="images/photo7_4.jpg" alt="P7 image 4">
+            <img src="images/photo7_5.jpg" alt="P7 image 5">
+            <img src="images/photo7_6.jpg" alt="P7 image 6">
+            <img src="images/photo7_7.jpg" alt="P7 image 7">
+            <img src="images/photo7_8.jpg" alt="P7 image 8">
+            <img src="images/photo7_9.jpg" alt="P7 image 9">
+            <img src="images/photo7_10.jpg" alt="P7 image 10">
+            <img src="images/photo7_11.jpg" alt="P7 image 11">
+        </div>
+    </div>
 
-                    container.appendChild(imgElement);
-                }
-            } else {
-                container.style.display = "none"; 
-            }
-        }
+    <div class="project">
+        <div class="project-title">P06</div>
+        <div class="photos">
+            <img src="images/photo6_0.jpg" alt="P6 image 0">
+            <img src="images/photo6_1.jpg" alt="P6 image 1">
+            <img src="images/photo6_2.jpg" alt="P6 image 2">
+            <img src="images/photo6_3.jpg" alt="P6 image 3">
+            <img src="images/photo6_4.jpg" alt="P6 image 4">
+            <img src="images/photo6_5.jpg" alt="P6 image 5">
+            <img src="images/photo6_6.jpg" alt="P6 image 6">
+            <img src="images/photo6_7.jpg" alt="P6 image 7">
+            <img src="images/photo6_8.jpg" alt="P6 image 8">
+            <img src="images/photo6_9.jpg" alt="P6 image 9">
+            <img src="images/photo6_10.jpg" alt="P6 image 10">
+            <img src="images/photo6_11.jpg" alt="P6 image 11">
+            <img src="images/photo6_12.jpg" alt="P6 image 12">
+            <img src="images/photo6_13.jpg" alt="P6 image 13">
+            <img src="images/photo6_14.jpg" alt="P6 image 14">
+        </div>
+    </div>
 
-        function addNextPhoto(num, container) {
-            let currentIndex = container.children.length;
+    <div class="project">
+        <div class="project-title">P05</div>
+        <div class="photos">
+            <img src="images/photo5_0.jpg" alt="P5 image 0">
+            <img src="images/photo5_1.jpg" alt="P5 image 1">
+            <img src="images/photo5_2.jpg" alt="P5 image 2">
+            <img src="images/photo5_3.jpg" alt="P5 image 3">
+            <img src="images/photo5_4.jpg" alt="P5 image 4">
+            <img src="images/photo5_5.jpg" alt="P5 image 5">
+        </div>
+    </div>
 
-            if (currentIndex < images[num]) {
-                let newImg = document.createElement("img");
-                newImg.src = `images/photo${num}_${currentIndex}.jpg`;
+    <div class="project">
+        <div class="project-title">P04</div>
+        <div class="photos">
+            <img src="images/photo4_0.jpg" alt="P4 image 0">
+            <img src="images/photo4_1.jpg" alt="P4 image 1">
+            <img src="images/photo4_2.jpg" alt="P4 image 2">
+            <img src="images/photo4_3.jpg" alt="P4 image 3">
+            <img src="images/photo4_4.jpg" alt="P4 image 4">
+            <img src="images/photo4_5.jpg" alt="P4 image 5">
+            <img src="images/photo4_6.jpg" alt="P4 image 6">
+            <img src="images/photo4_7.jpg" alt="P4 image 7">
+            <img src="images/photo4_8.jpg" alt="P4 image 8">
+            <img src="images/photo4_9.jpg" alt="P4 image 9">
+            <img src="images/photo4_10.jpg" alt="P4 image 10">
+            <img src="images/photo4_11.jpg" alt="P4 image 11">
+            <img src="images/photo4_12.jpg" alt="P4 image 12">
+            <img src="images/photo4_13.jpg" alt="P4 image 13">
+            <img src="images/photo4_14.jpg" alt="P4 image 14">
+            <img src="images/photo4_15.jpg" alt="P4 image 15">
+            <img src="images/photo4_16.jpg" alt="P4 image 16">
+            <img src="images/photo4_17.jpg" alt="P4 image 17">
+            <img src="images/photo4_18.jpg" alt="P4 image 18">
+            <img src="images/photo4_19.jpg" alt="P4 image 19">
+        </div>
+    </div>
 
-                newImg.addEventListener("click", function(event) { 
-                    event.stopPropagation();
-                    if (container.children.length === images[num]) {
-                        openImageInNewTab(this.src);
-                    } else {
-                        addNextPhoto(num, container);
-                    }
-                });
+    <div class="project">
+        <div class="project-title">P03</div>
+        <div class="photos">
+            <img src="images/photo3_0.jpg" alt="P3 image 0">
+            <img src="images/photo3_1.jpg" alt="P3 image 1">
+            <img src="images/photo3_2.jpg" alt="P3 image 2">
+            <img src="images/photo3_3.jpg" alt="P3 image 3">
+            <img src="images/photo3_4.jpg" alt="P3 image 4">
+            <img src="images/photo3_5.jpg" alt="P3 image 5">
+            <img src="images/photo3_6.jpg" alt="P3 image 6">
+            <img src="images/photo3_7.jpg" alt="P3 image 7">
+            <img src="images/photo3_8.jpg" alt="P3 image 8">
+            <img src="images/photo3_9.jpg" alt="P3 image 9">
+            <img src="images/photo3_10.jpg" alt="P3 image 10">
+            <img src="images/photo3_11.jpg" alt="P3 image 11">
+            <img src="images/photo3_12.jpg" alt="P3 image 12">
+        </div>
+    </div>
 
-                container.appendChild(newImg);
-            } else {
-                if (container.children.length === images[num]) {
-                    let firstImg = container.children[0];
-                    firstImg.addEventListener("click", function() {
-                        openImageInNewTab(this.src);
-                    });
-                }
-            }
-        }
+    <div class="project">
+        <div class="project-title">P02</div>
+        <div class="photos">
+            <img src="images/photo2_0.jpg" alt="P2 image 0">
+            <img src="images/photo2_1.jpg" alt="P2 image 1">
+            <img src="images/photo2_2.jpg" alt="P2 image 2">
+            <img src="images/photo2_3.jpg" alt="P2 image 3">
+            <img src="images/photo2_4.jpg" alt="P2 image 4">
+            <img src="images/photo2_5.jpg" alt="P2 image 5">
+            <img src="images/photo2_6.jpg" alt="P2 image 6">
+            <img src="images/photo2_7.jpg" alt="P2 image 7">
+            <img src="images/photo2_8.jpg" alt="P2 image 8">
+            <img src="images/photo2_9.jpg" alt="P2 image 9">
+        </div>
+    </div>
 
-        function openImageInNewTab(src) {
-            window.open(src, '_blank');
-        }
-    </script>
+    <div class="project">
+        <div class="project-title">P01</div>
+        <div class="photos">
+            <img src="images/photo1_0.jpg" alt="P1 image 0">
+            <img src="images/photo1_1.jpg" alt="P1 image 1">
+            <img src="images/photo1_2.jpg" alt="P1 image 2">
+            <img src="images/photo1_3.jpg" alt="P1 image 3">
+            <img src="images/photo1_4.jpg" alt="P1 image 4">
+        </div>
+    </div>
+
+
+    <img src="images/dessin-transparent.png" alt="Dessin Transparent" class="transparent-image">
 </body>
 </html>
