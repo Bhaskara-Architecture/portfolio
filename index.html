@@ -74,13 +74,11 @@
     }
 
     h1 {
-  text-transform: uppercase;
-  font-size: 72px;
-  text-align: right;
-  margin: 90px 0;
-  font-family: 'Lato', sans-serif;
-  color: #002fa7;
-}
+      text-transform: uppercase;
+      font-size: 24px;
+      text-align: center;
+      margin: 30px 0;
+    }
 
     .project {
       text-align: center;
@@ -89,25 +87,24 @@
 
     .project-title {
   font-family: 'Lato', sans-serif;
-  font-size: 18px;
+  font-size: 10px;
   font-weight: normal;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   color: #002fa7;
 }
 
     
 .project-description {
-  font-size: 15px;
+  font-size: 33px;
   text-align: left;
   max-width: 800px;
-  margin: 20px auto 20px auto;
-  font-style: normal;
-  font-weight: bold;
-  font-family: 'Cormorant Garamond', serif;
-  color: #002fa7;
-  line-height: 1.5;
-  text-transform: uppercase;
+  margin: 20px auto;
+  font-style: italic;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  line-height: 1.1;
 }
 
 
@@ -136,16 +133,15 @@
 @media screen and (max-width: 768px) {
   
 .project-description {
-  font-size: 15px;
+  font-size: 33px;
   text-align: left;
   max-width: 800px;
-  margin: 20px auto 20px auto;
-  font-style: normal;
-  font-weight: bold;
-  font-family: 'Cormorant Garamond', serif;
-  color: #002fa7;
-  line-height: 1.5;
-  text-transform: uppercase;
+  margin: 20px auto;
+  font-style: italic;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  line-height: 1.1;
 }
 
 
@@ -154,19 +150,13 @@
   }
 
   h1 {
-  text-transform: uppercase;
-  font-size: 72px;
-  text-align: right;
-  margin: 90px 0;
-  font-family: 'Lato', sans-serif;
-  color: #002fa7;
-}
+    font-size: 18px;
+  }
 }
 
 </style>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@1,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital@1&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="sidebar" id="sidebar">
@@ -462,11 +452,12 @@
   
   <script>
     const videos = [
-      "video/video1.m4v",
-      "video/video2.m4v",
-      "video/video3.m4v",
-      "video/video4.m4v"
-    ];
+  "video/video1.m4v"
+  "video/video2.m4v"
+  "video/video3.m4v"
+  "video/video4.m4v"
+  "video/video5.m4v"
+];
 
     let current = 0;
     const videoEls = [document.getElementById("video1"), document.getElementById("video2")];
