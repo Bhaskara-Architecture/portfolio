@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Lato', sans-serif;
-      color: #002fa7;
+      color: #ffff6b;
       background: transparent;
     }
 
@@ -29,7 +29,7 @@
 
     .sidebar a {
       display: block;
-      color: #002fa7;
+      color: #ffff6b;
       text-decoration: none;
       margin-bottom: 6px;
       font-size: 10px;
@@ -75,7 +75,7 @@
       text-align: right;
       margin: 90px 0;
       font-family: 'Lato', sans-serif;
-      color: #002fa7;
+      color: #ffff6b;
     }
 
     .project {
@@ -89,7 +89,7 @@
       font-weight: normal;
       text-transform: uppercase;
       margin-bottom: 10px;
-      color: #002fa7;
+      color: #ffff6b;
     }
 
     .project-description {
@@ -100,7 +100,7 @@
       font-style: normal;
       font-weight: bold;
       font-family: 'Cormorant Garamond', serif;
-      color: #002fa7;
+      color: #ffff6b;
       line-height: 1.5;
       text-transform: uppercase;
     }
@@ -270,14 +270,14 @@
             const imgPath = `images/photo${i}_${j}.jpg`;
             const img = new Image();
             img.src = imgPath;
-            img.onload = () => {
+            img.onload = ((imgPath, j) => () => {
               const link = document.createElement("a");
               link.href = imgPath;
               link.target = "_blank";
               img.alt = pid + " image " + j;
               link.appendChild(img);
               photoDiv.appendChild(link);
-            };
+            })(imgPath, j);
           }
         }
       });
