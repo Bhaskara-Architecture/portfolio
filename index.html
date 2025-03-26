@@ -445,79 +445,10 @@
       });
   </script>
 
-<script>
-  const projets = {
-    "P13": 13,
-    "P12": 8,
-    "P11": 5,
-    "P10": 5,
-    "P09": 10,
-    "P08": 12,
-    "P07": 21,
-    "P06": 15,
-    "P04": 1,
-    "P03": 1,
-    "P02": 1,
-    "P01": 5
-  };
-
-  Object.entries(projets).forEach(([pid, total]) => {
-    const photoDiv = document.getElementById("photos-" + pid);
-    for (let i = 0; i < total; i++) {
-      const imgPath = `images/photo${pid}_${i}.jpg`;
-      const img = new Image();
-      img.onload = () => {
-        const link = document.createElement("a");
-        link.href = imgPath;
-        link.target = "_blank";
-        const image = new Image();
-        image.src = imgPath;
-        image.alt = pid + " image " + i;
-        link.appendChild(image);
-        photoDiv.appendChild(link);
-      };
-      img.src = imgPath;
-    }
-  });
-</script>
 
 
-<script>
-  const projets = {
-    "P13": 13,
-    "P12": 8,
-    "P11": 5,
-    "P10": 5,
-    "P09": 10,
-    "P08": 12,
-    "P07": 21,
-    "P06": 15,
-    "P05": 6,
-    "P04": 1,
-    "P03": 1,
-    "P02": 1,
-    "P01": 5
-  };
 
-  Object.entries(projets).forEach(([pid, total]) => {
-    const photoDiv = document.getElementById("photos-" + pid);
-    for (let i = 0; i < total; i++) {
-      const imgPath = `images/photo${pid}_${i}.jpg`;
-      const img = new Image();
-      img.onload = () => {
-        const link = document.createElement("a");
-        link.href = imgPath;
-        link.target = "_blank";
-        const image = new Image();
-        image.src = imgPath;
-        image.alt = pid + " image " + i;
-        link.appendChild(image);
-        photoDiv.appendChild(link);
-      };
-      img.src = imgPath;
-    }
-  });
-</script>
+
 
 
 <script>
@@ -534,26 +465,31 @@
     });
 </script>
 
+
+
+
+
 <script>
   const projets = {
-    "P13": 13,
-    "P12": 8,
-    "P11": 5,
-    "P10": 5,
-    "P09": 10,
-    "P08": 12,
-    "P07": 21,
-    "P06": 15,
-    "P05": 6,
-    "P04": 1,
-    "P03": 1,
-    "P02": 1,
-    "P01": 5
+    "P13": 20,
+    "P12": 20,
+    "P11": 20,
+    "P10": 20,
+    "P09": 20,
+    "P08": 20,
+    "P07": 20,
+    "P06": 20,
+    "P05": 20,
+    "P04": 20,
+    "P03": 20,
+    "P02": 20,
+    "P01": 20
   };
 
   Object.entries(projets).forEach(([pid, total]) => {
-    const num = pid.substring(1); // retirer le P
+    const num = pid.substring(1).replace(/^0+/, '');
     const photoDiv = document.getElementById("photos-" + pid);
+    if (!photoDiv) return;
     for (let i = 0; i < total; i++) {
       const imgPath = `images/photo${num}_${i}.jpg`;
       const img = new Image();
@@ -571,7 +507,6 @@
     }
   });
 </script>
-
 
 </body>
 </html>
