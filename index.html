@@ -356,63 +356,7 @@
 
 
 
-<script>
-  const projets = {
-    "P01": 6,
-    "P02": 1,
-    "P03": 1,
-    "P04": 1,
-    "P05": 1,
-    "P06": 15,
-    "P07": 20,
-    "P08": 13,
-    "P09": 11,
-    "P10": 6,
-    "P11": 6,
-    "P12": 9,
-    "P13": 14
-  };
 
-  // Charger les descriptions
-  fetch("descriptions.json")
-    .then(res => {
-      if (!res.ok) throw new Error("Fichier descriptions.json introuvable");
-      return res.json();
-    })
-    .then(data => {
-      Object.entries(data).reverse().forEach(([key, text]) => {
-        const el = document.getElementById("desc-" + key);
-        if (el) el.innerHTML = text.replace(/
-/g, "<br>");
-        const preview = text.split(" ").slice(0, 2).join(" ");
-        const link = document.createElement("a");
-        link.href = "#" + key;
-        link.textContent = key + " — " + preview;
-        document.getElementById("sidebar").appendChild(link);
-      });
-    });
-
-  // Charger les images
-  Object.entries(projets).forEach(([pid, total]) => {
-    const num = pid.substring(1);
-    const photoDiv = document.getElementById("photos-" + pid);
-    for (let i = 0; i < total; i++) {
-      const imgPath = `images/photo${num}_${i}.jpg`;
-      const img = new Image();
-      img.onload = () => {
-        const link = document.createElement("a");
-        link.href = imgPath;
-        link.target = "_blank";
-        const image = new Image();
-        image.src = imgPath;
-        image.alt = pid + " image " + i;
-        link.appendChild(image);
-        photoDiv.appendChild(link);
-      };
-      img.src = imgPath;
-    }
-  });
-</script>
 
 </body>
 </html>
