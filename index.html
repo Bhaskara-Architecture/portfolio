@@ -358,5 +358,33 @@
 
 
 
+
+<script>
+  const projets = {
+    "P13": 14, "P12": 9, "P11": 6, "P10": 6, "P09": 11, "P08": 13,
+    "P07": 20, "P06": 15, "P01": 6, "P02": 1, "P03": 1, "P04": 1, "P05": 1
+  };
+
+  Object.entries(projets).forEach(([pid, total]) => {
+    const num = pid.substring(1); // ex: P07 → 07 → 7
+    const container = document.getElementById("photos-" + pid);
+    for (let i = 0; i < total; i++) {
+      const imgPath = `images/photo${num}_${i}.jpg`;
+      const img = new Image();
+      img.onload = () => {
+        const link = document.createElement("a");
+        link.href = imgPath;
+        link.target = "_blank";
+        const image = new Image();
+        image.src = imgPath;
+        image.alt = pid + " image " + i;
+        link.appendChild(image);
+        container.appendChild(link);
+      };
+      img.src = imgPath;
+    }
+  });
+</script>
+
 </body>
 </html>
