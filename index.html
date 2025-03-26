@@ -386,5 +386,44 @@
   });
 </script>
 
+
+<script>
+  const projets = {
+    "P01": 6, "P02": 1, "P03": 1, "P04": 1, "P05": 1,
+    "P06": 15, "P07": 20, "P08": 13, "P09": 11,
+    "P10": 6, "P11": 6, "P12": 9, "P13": 14
+  };
+
+  Object.keys(projets).sort().forEach(pid => {
+    const total = projets[pid];
+    const num = pid.substring(1).replace(/^0+/, ''); // ex: "P07" -> "7"
+    const container = document.getElementById("photos-" + pid);
+    if (!container) return;
+
+    const entries = [];
+    for (let i = 0; i < total; i++) {
+      const imgPath = `images/photo${num}_${i}.jpg`;
+      entries.push({ imgPath, index: i });
+    }
+
+    entries.sort((a, b) => a.index - b.index); // forcer l'ordre croissant
+
+    entries.forEach(entry => {
+      const img = new Image();
+      img.onload = () => {
+        const link = document.createElement("a");
+        link.href = entry.imgPath;
+        link.target = "_blank";
+        const image = new Image();
+        image.src = entry.imgPath;
+        image.alt = pid + " image " + entry.index;
+        link.appendChild(image);
+        container.appendChild(link);
+      };
+      img.src = entry.imgPath;
+    });
+  });
+</script>
+
 </body>
 </html>
