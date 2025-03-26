@@ -167,6 +167,9 @@
 
   font-weight: bold;}
 
+#P13 {
+  margin-top: 500px;
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@1,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital@1&display=swap" rel="stylesheet">
@@ -441,5 +444,42 @@
         document.querySelector(".main").appendChild(errorBox);
       });
   </script>
+
+<script>
+  const projets = {
+    "P13": 13,
+    "P12": 8,
+    "P11": 5,
+    "P10": 5,
+    "P09": 10,
+    "P08": 12,
+    "P07": 21,
+    "P06": 15,
+    "P04": 1,
+    "P03": 1,
+    "P02": 1,
+    "P01": 5
+  };
+
+  Object.entries(projets).forEach(([pid, total]) => {
+    const photoDiv = document.getElementById("photos-" + pid);
+    for (let i = 0; i < total; i++) {
+      const imgPath = `images/photo${pid}_${i}.jpg`;
+      const img = new Image();
+      img.onload = () => {
+        const link = document.createElement("a");
+        link.href = imgPath;
+        link.target = "_blank";
+        const image = new Image();
+        image.src = imgPath;
+        image.alt = pid + " image " + i;
+        link.appendChild(image);
+        photoDiv.appendChild(link);
+      };
+      img.src = imgPath;
+    }
+  });
+</script>
+
 </body>
 </html>
