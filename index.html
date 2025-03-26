@@ -365,41 +365,32 @@
 
 
 
+
+
+
 <script>
   const projets = {
-    "P13": 20,
-    "P12": 20,
-    "P11": 20,
-    "P10": 20,
-    "P09": 20,
-    "P08": 20,
-    "P07": 20,
-    "P06": 20,
-    "P05": 20,
-    "P04": 20,
-    "P03": 20,
-    "P02": 20,
-    "P01": 20
+    "P01": 20, "P02": 20, "P03": 20, "P04": 20, "P05": 20,
+    "P06": 20, "P07": 20, "P08": 20, "P09": 20,
+    "P10": 20, "P11": 20, "P12": 20, "P13": 20
   };
 
-  Object.entries(projets).forEach(([pid, total]) => {
-    const num = pid.substring(1).replace(/^0+/, '');
-    const photoDiv = document.getElementById("photos-" + pid);
-    if (!photoDiv) return;
+  Object.keys(projets).forEach(pid => {
+    const total = projets[pid];
+    const num = String(Number(pid.substring(1))); // "P01" -> "1"
+    const container = document.getElementById("photos-" + pid);
+    if (!container) return;
+
     for (let i = 0; i < total; i++) {
       const imgPath = `images/photo${num}_${i}.jpg`;
-      const img = new Image();
-      img.onload = () => {
-        const link = document.createElement("a");
-        link.href = imgPath;
-        link.target = "_blank";
-        const image = new Image();
-        image.src = imgPath;
-        image.alt = pid + " image " + i;
-        link.appendChild(image);
-        photoDiv.appendChild(link);
-      };
-      img.src = imgPath;
+      const link = document.createElement("a");
+      link.href = imgPath;
+      link.target = "_blank";
+      const image = new Image();
+      image.src = imgPath;
+      image.alt = pid + " image " + i;
+      link.appendChild(image);
+      container.appendChild(link);
     }
   });
 </script>
