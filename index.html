@@ -348,17 +348,7 @@
 
 
 <script>
-  fetch("descriptions.json")
-    .then(response => response.json())
-    .then(data => {
-      for (const [id, text] of Object.entries(data)) {
-        const el = document.getElementById("desc-" + id);
-        if (el) {
-          el.innerHTML = text.replace(/
-/g, "<br>");
-        }
-      }
-    });
+  
 </script>
 
 
