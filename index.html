@@ -516,46 +516,7 @@ fetch("descriptions.json")
 </script>
 
 
-<script>
-const projets = {
-  "P00": 6,
-  "P01": 9,
-  "P02": 1,
-  "P03": 1,
-  "P04": 1,
-  "P05": 1,
-  "P06": 15,
-  "P07": 20,
-  "P08": 12,
-  "P09": 9,
-  "P10": 6,
-  "P11": 8,
-  "P12": 11,
-  "P13": 13
-};
 
-Object.entries(projets).forEach(([pid, total]) => {
-  const num = pid.substring(1).replace(/^0+/, '');
-  const container = document.getElementById("photos-" + pid);
-  if (!container) return;
-
-  for (let i = 0; i < total; i++) {
-    const imgPath = `images/photo${num}_${i}.jpg`;
-    const img = new Image();
-    img.onload = () => {
-      const link = document.createElement("a");
-      link.href = imgPath;
-      link.target = "_blank";
-      const image = new Image();
-      image.src = imgPath;
-      image.alt = pid + " image " + i;
-      link.appendChild(image);
-      container.appendChild(link);
-    };
-    img.src = imgPath;
-  }
-});
-</script>
 
 </body>
 </html>
