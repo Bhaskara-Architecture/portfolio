@@ -486,7 +486,8 @@
         Object.entries(data).reverse().forEach(([key, text]) => {
           const el = document.getElementById("desc-" + key);
           if (el) el.innerHTML = text.replace(/\n/g, "<br>");
-          const preview = text.split(" ").slice(0, 2).join(" ");
+          const parts = text.split(".");
+const preview = parts.length >= 2 ? parts.slice(0, 2).join(".") + "." : text;
           const link = document.createElement("a");
           link.href = "#" + key;
           link.textContent = key + " — " + preview;
