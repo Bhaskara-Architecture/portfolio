@@ -311,34 +311,35 @@
     videoEls[0].play();
 
     fetch("descriptions.json")
-      .then(res => {
-        if (!res.ok) throw new Error("Fichier descriptions.json introuvable");
-        return res.json();
-      })
-      .then(data => {
-        Object.entries(data).reverse().forEach(([key, text]) => {
-          const el = document.getElementById("desc-" + key);
-          if (el) el.innerHTML = text.replace(/\n/g, "<br>");
-          const preview = text.split(" ").slice(0, 2).join(" ");
-          const link = document.createElement("a");
-          link.href = "#" + key;
-          link.textContent = key + " — " + preview;
-          document.getElementById("sidebar").appendChild(link);
-        });
-      })
-      .catch(err => {
-        const errorBox = document.createElement("div");
-        errorBox.style.background = "rgba(255,0,0,0.1)";
-        errorBox.style.color = "#b00";
-        errorBox.style.padding = "10px";
-        errorBox.style.margin = "20px auto";
-        errorBox.style.maxWidth = "600px";
-        errorBox.style.fontSize = "14px";
-        errorBox.style.border = "1px solid #b00";
-        errorBox.style.textAlign = "center";
-        errorBox.innerText = "⚠️ Erreur : " + err.message;
-        document.querySelector(".main").appendChild(errorBox);
-      });
+  .then(res => {
+    if (!res.ok) throw new Error("Fichier descriptions.json introuvable");
+    return res.json();
+  })
+  .then(data => {
+    Object.entries(data).reverse().forEach(([key, text]) => {
+      const el = document.getElementById("desc-" + key);
+      if (el) el.innerHTML = text.replace(/
+/g, "<br>");
+      const preview = text.split('.').slice(0, 3).join('.').trim() + '.';
+      const link = document.createElement("a");
+      link.href = "#" + key;
+      link.textContent = key + " — " + preview;
+      document.getElementById("sidebar").appendChild(link);
+    });
+  })
+  .catch(err => {
+    const errorBox = document.createElement("div");
+    errorBox.style.background = "rgba(255,0,0,0.1)";
+    errorBox.style.color = "#b00";
+    errorBox.style.padding = "10px";
+    errorBox.style.margin = "20px auto";
+    errorBox.style.maxWidth = "600px";
+    errorBox.style.fontSize = "14px";
+    errorBox.style.border = "1px solid #b00";
+    errorBox.style.textAlign = "center";
+    errorBox.innerText = "⚠️ Erreur : " + err.message;
+    document.querySelector(".main").appendChild(errorBox);
+  });
   </script>
 
 
