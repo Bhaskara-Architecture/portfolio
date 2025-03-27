@@ -1,178 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio avec sommaire latéral</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap" rel="stylesheet">
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: 'Lato', sans-serif;
-      color: #002fa7;
-      background: transparent;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 320px;
-      height: 100vh;
-      background-color: transparent;
-      padding: 20px 10px;
-      font-size: 10px;
-      overflow-y: auto;
-      z-index: 10;
-    }
-
-    .sidebar a {
-      display: block;
-      color: #0d7950;
-      text-decoration: none;
-      margin-bottom: 6px;
-      font-size: 22px;
-      font-family: 'Lato', sans-serif;
-      text-transform: uppercase;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .sidebar a:hover {
-      opacity: 0.6;
-    }
-
-    .main {
-      margin-left: 330px;
-      padding: 30px 20px;
-    }
-
-    .video-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-    }
-
-    .background-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255,255,255,0.7);
-      z-index: -1;
-    }
-
-    .project {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .project-title {
-      font-family: 'Lato', sans-serif;
-      font-size: 18px;
-      font-weight: normal;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      color: #2ad581;
-    }
-
-    .project-description {
-      font-size: 17px;
-      text-align: left;
-      max-width: 800px;
-      margin: 20px auto 20px auto;
-      font-style: normal;
-      font-weight: 400;
-      font-family: 'Work Sans', sans-serif;
-      color: #0d7950;
-      line-height: 0.9;
-      text-transform: none;
-    }
-
-    .photos {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .photos img {
-      width: 100%;
-      max-width: 750px;
-      height: auto;
-      cursor: pointer;
-    }
-
-    .transparent-image {
-      display: block;
-      margin: 50px auto 0 auto;
-      width: 50%;
-      max-width: 300px;
-      opacity: 0.9;
-    }
-
-    @media screen and (max-width: 768px) {
-      .project-description {
-        font-size: 17px;
-        text-align: left;
-        max-width: 800px;
-        margin: 20px auto 20px auto;
-        font-style: normal;
-        font-weight: 400;
-        font-family: 'Work Sans', sans-serif;
-        color: #0d7950;
-        line-height: 0.9;
-        text-transform: none;
-      }
-
-      .sidebar {
-        display: none;
-      }
-    }
-
-    .header-title {
-      position: fixed;
-      top: 30px;
-      right: 30px;
-      font-size: 72px;
-      font-family: 'Lato', sans-serif;
-      color: #ffff6b;
-      text-transform: uppercase;
-      z-index: 15;
-      font-weight: bold;
-    }
-
-    #P13 {
-      margin-top: 500px;
-    }
-
-    .footer-contact {
-      position: fixed;
-      bottom: 10px;
-      left: 15px;
-      font-size: 11px;
-      font-family: 'Lato', sans-serif;
-      color: #0d7950;
-      line-height: 1.4;
-      text-transform: uppercase;
-      z-index: 10;
-    }
-
     .qui-toggle {
       position: fixed;
       bottom: 100px;
@@ -208,17 +43,16 @@
   </script>
 </head>
 <body>
-  <div class="qui-toggle" onclick="toggleQui()">QUI ?</div>
-  <div id="quiContent" class="qui-content">
-    Sont architectes associé·e·s travaillant entre Paris et Marseille.<br><br>
-    Bhaskar est né en Inde sous la forme d’une association à but non lucratif, engagée dans la protection de l’environnement et la construction d’habitats solidaires et durables.<br><br>
-    Aujourd’hui, cette démarche se prolonge à travers une pratique architecturale multiple, imprévisible, ancrée dans la réalité des inégalités sociales et des urgences environnementales. Chaque projet est conçu comme un geste mesuré, ajusté à son contexte, attentif à ses habitants.<br><br>
-    Qu’il s’agisse de lieux de soins, d’équipements collectifs, de logements ou d’espaces professionnels, l’architecture que nous défendons cherche moins à imposer qu’à accompagner — à s’ajuster continuellement, à favoriser les échanges entre participant·e·s, pour que les projets trouvent leur sens au-delà de leur simple matérialisation. La temporalité longue est la bienvenue.
+  <div class="sidebar" id="sidebar">
+    <!-- Sommaire dynamique -->
   </div>
 
-  <div class="footer-contact">
-    10 rue Vicq d'Azir - 75010 - Paris.<br>
-    4 rue du Bosquet - 13004 - Marseille
+  <div class="qui-toggle" onclick="toggleQui()">QUI ?</div>
+  <div id="quiContent" class="qui-content">
+    Mathilde Lasserre et Elie Bogino sont architectes associé·e·s travaillant entre Paris et Marseille.<br><br>
+    Bhaskar est née en Inde sous la forme d’une association à but non lucratif, engagée dans la protection de l’environnement et la construction d’habitats solidaires et durables.<br><br>
+    Aujourd’hui, cette démarche se prolonge à travers une pratique architecturale multiple, imprévisible, ancrée dans la réalité des inégalités sociales et des urgences environnementales. Chaque projet est conçu comme un geste mesuré, ajusté à son contexte, attentif à ses habitants.<br><br>
+    Qu’il s’agisse de lieux de soins, d’équipements collectifs, de logements ou d’espaces professionnels, l’architecture que nous défendons cherche moins à imposer qu’à accompagner — à s’ajuster continuellement, à favoriser les échanges entre participant·e·s, pour que les projets trouvent leur sens au-delà de leur simple matérialisation.
   </div>
 </body>
 </html>
