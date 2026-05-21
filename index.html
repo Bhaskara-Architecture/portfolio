@@ -151,26 +151,25 @@
 
 
 
-.project-description {
-  font-size: 15px;
-  text-align: left;
-  max-width: 800px;
-  margin: 20px auto;
-  font-style: normal;
-  font-weight: 400;
-  font-family: 'Work Sans', sans-serif;
-  color: #0d7950;
-  line-height: 1.2;
-  text-transform: uppercase;
-  text-decoration: underline;
-}
+  body * {
+    display: none !important;
+  }
 
-
-
-
-
-  .sidebar {
-    display: none;
+  body::before {
+    content: "BHASKAR UNDER CONSTRUCTION";
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: white;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 40px;
+    z-index: 999999;
   }
 
   
