@@ -440,41 +440,16 @@
   
   
   <script>
-    const videos = [
-      "video/video1.m4v",
-      "video/video2.m4v",
-      "video/video3.m4v",
-      "video/video4.m4v"
-    ];
+  const video = document.getElementById("video1");
 
-    let current = 0;
-    const videoEls = [document.getElementById("video1"), document.getElementById("video2")];
-    const fadeDuration = 800;
+video.src = "video/video1.m4v";
+video.style.opacity = 1;
+video.play();
 
-    function switchVideo() {
-      const currentEl = videoEls[current % 2];
-      const nextEl = videoEls[(current + 1) % 2];
-
-      nextEl.loop = false;
-      nextEl.src = videos[current];
-      nextEl.load();
-
-      nextEl.oncanplay = () => {
-        nextEl.style.transition = `opacity ${fadeDuration}ms ease-in-out`;
-        currentEl.style.transition = `opacity ${fadeDuration}ms ease-in-out`;
-        nextEl.style.opacity = 1;
-        currentEl.style.opacity = 0;
-        nextEl.play();
-        current = (current + 1) % videos.length;
-      };
-    }
-
-    videoEls[0].addEventListener("ended", switchVideo);
-    videoEls[1].addEventListener("ended", switchVideo);
-    videoEls[0].loop = false;
-    videoEls[0].src = videos[0];
-    videoEls[0].style.opacity = 1;
-    videoEls[0].play();
+video.addEventListener("ended", () => {
+  document.querySelector(".video-container").style.display = "none";
+  document.body.style.background = "#fcf7cb";
+});
 
     fetch("descriptions.json")
       .then(res => {
