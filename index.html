@@ -111,7 +111,9 @@
   grid-template-columns: 160px 1fr;
   column-gap: 40px;
   row-gap: 6px;
-  max-width: 900px;
+
+  width: min(100%, 750px);
+  max-width: 750px;
   margin: 40px auto;
 
   font-family: 'Work Sans', sans-serif;
@@ -120,23 +122,19 @@
 
   color: black;
   text-transform: lowercase;
-}
-
-.project-description strong {
-  color: black;
-  font-weight: 600;
+  text-align: left;
 }
 
 .project-description div:nth-child(odd) {
   font-weight: 600;
   color: black;
+  text-align: left;
 }
 
 .project-description div:nth-child(even) {
   text-align: right;
   color: black;
 }
-
 
 
 
