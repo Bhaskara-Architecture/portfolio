@@ -133,7 +133,10 @@
 }
 
 .header-title {
-  font-size: clamp(32px, 6vw, 72px);
+  font-size: clamp(24px, 4vw, 72px);
+  max-width: 60vw;
+  line-height: 0.9;
+  text-align: right;
 }
 
 .photos img {
@@ -145,6 +148,13 @@
   margin-left: clamp(260px, 32vw, 540px);
 }
 
+.sidebar {
+  width: clamp(260px, 32vw, 520px);
+}
+
+.sidebar a {
+  font-size: clamp(14px, 1.8vw, 22px);
+}
   
 @media screen and (max-width: 768px) {
   
