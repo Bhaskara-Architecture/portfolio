@@ -487,13 +487,14 @@ fetch("descriptions.json")
   .then(data => {
     Object.entries(data).reverse().forEach(([key, text]) => {
 
-      const el = document.getElementById("desc-" + key);
+  const el = document.getElementById("desc-" + key);
 
-      if (el) {
-        const lines = text
-          .split("\n")
-          .map(l => l.trim())
-          .filter(Boolean);
+const lines = text
+  .split("\n")
+  .map(l => l.trim())
+  .filter(Boolean);
+
+if (el) {
 
         el.innerHTML = lines.map(line => {
 
@@ -518,10 +519,18 @@ fetch("descriptions.json")
         }).join("");
       }
 
-      const parts = text.split(".");
-      const preview = parts.length >= 2
-        ? parts.slice(0, 2).join(".") + "."
-        : text;
+const yearLine = lines.find(l => l.startsWith("année :"));
+const projectLine = lines.find(l => l.startsWith("projet :"));
+
+const year = yearLine
+  ? yearLine.replace("année :", "").trim()
+  : "";
+
+const project = projectLine
+  ? projectLine.replace("projet :", "").trim()
+  : "";
+
+const preview = `${year}. ${project.toUpperCase()}.`;
 
       const link = document.createElement("a");
 
