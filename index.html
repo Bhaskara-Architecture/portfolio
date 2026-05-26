@@ -107,17 +107,31 @@
 
 
 .project-description {
-  font-size: 15px;
-  text-align: left;
-  max-width: 800px;
-  margin: 20px auto;
-  font-style: normal;
-  font-weight: 400;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  column-gap: 40px;
+  row-gap: 6px;
+  max-width: 900px;
+  margin: 40px auto;
   font-family: 'Work Sans', sans-serif;
-  color: #0d7950;
+  font-size: 15px;
   line-height: 1.2;
-  text-transform: uppercase;
+  color: #007950;
+  text-transform: lowercase;
+}
+
+.project-description strong {
+  color: black;
+  font-weight: 600;
+}
+
+.project-description div:nth-child(odd) {
   text-decoration: underline;
+  font-weight: 600;
+}
+
+.project-description div:nth-child(even) {
+  text-align: right;
 }
 
 
