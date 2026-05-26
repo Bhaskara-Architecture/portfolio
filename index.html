@@ -124,27 +124,27 @@
 
 
 
-    .photos {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
+.transparent-image {
+  display: block;
+  margin: 50px auto 0 auto;
+  width: 50%;
+  max-width: 300px;
+  opacity: 0.9;
+}
 
-    .photos img {
-      width: 100%;
-      max-width: 750px;
-      height: auto;
-      cursor: pointer;
-    }
+.header-title {
+  font-size: clamp(32px, 6vw, 72px);
+}
 
-    .transparent-image {
-      display: block;
-      margin: 50px auto 0 auto;
-      width: 50%;
-      max-width: 300px;
-      opacity: 0.9;
-    }
+.photos img {
+  width: min(100%, 750px);
+  height: auto;
+}
+
+.main {
+  margin-left: clamp(260px, 32vw, 540px);
+}
+
   
 @media screen and (max-width: 768px) {
   
