@@ -440,7 +440,7 @@
   
   
   <script>
-  const video = document.getElementById("video1");
+const video = document.getElementById("video1");
 
 video.src = "video/video1.m4v";
 video.style.opacity = 1;
@@ -448,6 +448,7 @@ video.play();
 
 video.addEventListener("ended", () => {
   document.querySelector(".video-container").style.display = "none";
+  document.querySelector(".overlay").style.display = "none";
   document.body.style.background = "#fcf7cb";
 });
 
